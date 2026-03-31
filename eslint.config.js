@@ -8,7 +8,8 @@ module.exports = [
       'examples/**',
       'template/**',
       'src/static/**',
-      'test-src/**'
+      'test-src/**',
+      '.test/**'
     ]
   },
   ...neostandard(),
