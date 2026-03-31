@@ -49,7 +49,7 @@ module.exports = function (grunt) {
           { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], dest: 'template/static/js/', filter: 'isFile' },
           { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/css/bootstrap.min.css'], dest: 'template/static/css/', filter: 'isFile' },
           { expand: true, flatten: true, src: ['node_modules/bootstrap-icons/font/bootstrap-icons.min.css'], dest: 'template/static/css/', filter: 'isFile' },
-          { expand: true, cwd: 'node_modules/bootstrap-icons/font/fonts/', src: ['*'], dest: 'template/static/fonts/' }
+          { expand: true, cwd: 'node_modules/bootstrap-icons/font/fonts/', src: ['*'], dest: 'template/static/css/fonts/' }
         ]
       },
       jquery: {
