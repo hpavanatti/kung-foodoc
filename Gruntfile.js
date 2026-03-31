@@ -200,7 +200,7 @@ module.exports = function (grunt) {
     if (options.tutorials) args.push('--tutorials', options.tutorials)
     if (options.private) args.push('-p')
     this.filesSrc.forEach(function (src) { args.push(src) })
-    grunt.util.spawn({ cmd: process.execPath, args: args }, function (error, result) {
+    grunt.util.spawn({ cmd: process.execPath, args }, function (error, result) {
       if (error) {
         grunt.log.error(result.stderr || result.stdout || error.message)
         done(false)
