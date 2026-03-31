@@ -1,0 +1,89 @@
+{
+  // ── Editor ─────────────────────────────────────────────────────────
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "on"
+  },
+  "editor.guides.bracketPairs": "active",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  // ── Explorer ───────────────────────────────────────────────────────
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  // ── Diff Editor ────────────────────────────────────────────────────
+  "diffEditor.ignoreTrimWhitespace": false,
+  // ── Language-Specific Formatters ───────────────────────────────────
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "[yml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  // ── YAML ───────────────────────────────────────────────────────────
+  "yaml.format.singleQuote": true,
+  "yaml.format.bracketSpacing": true,
+  "yaml.format.proseWrap": "preserve",
+  // ── ESLint ─────────────────────────────────────────────────────────
+  "eslint.format.enable": true,
+  // ── JavaScript ─────────────────────────────────────────────────────
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  // ── Debug ──────────────────────────────────────────────────────────
+  "debug.focusWindowOnBreak": false,
+  // ── Terminal ───────────────────────────────────────────────────────
+  "terminal.integrated.scrollback": 5000,
+  // ── Indent Rainbow ─────────────────────────────────────────────────
+  "indentRainbow.indicatorStyle": "light",
+  "indentRainbow.lightIndicatorStyleLineWidth": 2,
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.3)",
+    "rgba(255,0,255,0.3)",
+    "rgba(0,127,255,0.3)",
+    "rgba(0,255,0,0.3)"
+  ],
+  // ── Workbench & Theme ──────────────────────────────────────────────
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editorAssociations": {
+    "*.md": "default",
+    "*.markdown": "default"
+  },
+  "cSpell.words": [
+    "doclet",
+    "doclets",
+    "esque",
+    "foodoc",
+    "linenum",
+    "linenums",
+    "longname",
+    "mistic",
+    "navbars",
+    "themeing"
+  ]
+}

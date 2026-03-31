@@ -1,5 +1,5 @@
 {
-  "name": "foodoc",
+  "name": "kung-foodoc",
   "version": "0.0.9",
   "description": "A Bootstrap and Handlebars based JSDoc3 template.",
   "main": "./template/publish.js",
@@ -8,19 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/steveush/foodoc.git"
+    "url": "git+https://github.com/hpavanatti/kung-foodoc.git"
   },
   "keywords": [
     "jsdoc",
     "template",
     "fooplugins"
   ],
-  "author": "Steve Usher",
+  "author": "hpavanatti",
+  "contributors": [
+    "Steve Usher"
+  ],
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/steveush/foodoc/issues"
+    "url": "https://github.com/hpavanatti/kung-foodoc/issues"
   },
-  "homepage": "https://github.com/steveush/foodoc#readme",
+  "homepage": "https://github.com/hpavanatti/kung-foodoc#readme",
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "clipboard": "^2.0.1",
