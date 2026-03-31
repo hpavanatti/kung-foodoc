@@ -1,7 +1,5 @@
 [![NPM](https://nodei.co/npm/foodoc.png?downloads=true)](https://nodei.co/npm/foodoc/)
 
-[![Dependency Status](https://img.shields.io/david/steveush/foodoc.svg)](https://david-dm.org/steveush/foodoc) [![devDependency Status](https://img.shields.io/david/dev/steveush/foodoc.svg)](https://david-dm.org/steveush/foodoc#info=devDependencies) [![Donate](https://img.shields.io/badge/Donate-PayPal-brightgreen.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DHYUFBMRBJLTW)
-
 # FooDoc
 
 FooDoc is a [Bootstrap](http://twitter.github.io/bootstrap/index.html) and [Handlebars](http://handlebarsjs.com/) based template for [JSDoc3](http://usejsdoc.org/). A big thanks must go out to [DocStrap](https://github.com/docstrap/docstrap) as it served as the inspiration for this project.
