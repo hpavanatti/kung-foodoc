@@ -75,17 +75,24 @@
     "*.markdown": "default"
   },
   "cSpell.words": [
+    "AFILTER",
+    "defaultvalue",
     "doclet",
     "doclets",
     "esque",
     "foodoc",
     "fooplugins",
+    "glyphicon",
+    "googlecode",
     "hpavanatti",
     "linenum",
     "linenums",
+    "linkto",
     "longname",
     "mistic",
     "navbars",
-    "themeing"
+    "sourcelink",
+    "themeing",
+    "tmpl"
   ]
 }
