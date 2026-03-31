@@ -9,7 +9,7 @@
 				// create a jq object of the current element and figure out if it's expanded or collapsed
 				var $title = $(dt), expanded = $title.hasClass("expanded"),
 				// create the toggle with the correct icon
-					$toggle = $("<span/>", {"class": "pull-right toggle-icon glyphicon glyphicon-chevron-" + (expanded ? "up" : "down")});
+					$toggle = $("<span/>", {"class": "float-end toggle-icon bi bi-chevron-" + (expanded ? "up" : "down")});
 				// all collapsible symbols have only a single H# element displaying the name, add the toggle to that
 				$title.find("h1,h2,h3,h4,h5").first().append($toggle);
 			})
@@ -17,7 +17,7 @@
 			.on('click', function(e){
 				// if the origin of the click is an anchor do nothing and let the browser handle it
 				var $target = $(e.target);
-				if ($target.is('a') || $target.closest('a').length != 0 || $target.is('.checkbox,.checkbox-inline') || $target.closest('.checkbox,.checkbox-inline').length != 0) return;
+				if ($target.is('a') || $target.closest('a').length != 0 || $target.is('.form-check,.form-check-inline') || $target.closest('.form-check,.form-check-inline').length != 0) return;
 
 				// otherwise toggle the current state of the details
 				e.preventDefault();
@@ -30,14 +30,14 @@
 
 				if (expand){
 					// toggle the icon, add the inner height to the current height and then transition to that value
-					$icon.removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-up');
+					$icon.removeClass('bi-chevron-down').addClass('bi-chevron-up');
 					height += $inner.outerHeight();
 					$title.add($details).addClass('expanded');
 					$details.addClass('transition').css('max-height', height);
 				} else {
 					// toggle the icon, set the max-height to the current height and then transition to 0, the max-height is set to 9999 in the below
 					// transitionend event to fix any sizing issues so it needs to be reset to the current value again before transitioning.
-					$icon.removeClass('glyphicon-chevron-up').addClass('glyphicon-chevron-down');
+					$icon.removeClass('bi-chevron-up').addClass('bi-chevron-down');
 					$title.add($details).removeClass('expanded');
 					$details.removeClass('transition').css('max-height', height);
 					setTimeout(function(){

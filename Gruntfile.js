@@ -46,9 +46,10 @@ module.exports = function (grunt) {
       },
       bootstrap: {
         files: [
-          { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/js/bootstrap.min.js'], dest: 'template/static/js/', filter: 'isFile' },
+          { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'], dest: 'template/static/js/', filter: 'isFile' },
           { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/css/bootstrap.min.css'], dest: 'template/static/css/', filter: 'isFile' },
-          { expand: true, flatten: true, src: ['node_modules/bootstrap/dist/fonts/*'], dest: 'template/static/fonts/', filter: 'isFile' }
+          { expand: true, flatten: true, src: ['node_modules/bootstrap-icons/font/bootstrap-icons.min.css'], dest: 'template/static/css/', filter: 'isFile' },
+          { expand: true, cwd: 'node_modules/bootstrap-icons/font/fonts/', src: ['*'], dest: 'template/static/fonts/' }
         ]
       },
       jquery: {
@@ -188,7 +189,27 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-handlebars')
-  grunt.loadNpmTasks('grunt-jsdoc')
+
+  grunt.registerMultiTask('jsdoc', 'Run JSDoc', function () {
+    const done = this.async()
+    const options = this.options({})
+    const args = [require.resolve('jsdoc/jsdoc.js')]
+    if (options.destination) args.push('-d', options.destination)
+    if (options.template) args.push('-t', options.template)
+    if (options.configure) args.push('-c', options.configure)
+    if (options.tutorials) args.push('--tutorials', options.tutorials)
+    if (options.private) args.push('-p')
+    this.filesSrc.forEach(function (src) { args.push(src) })
+    grunt.util.spawn({ cmd: process.execPath, args: args }, function (error, result) {
+      if (error) {
+        grunt.log.error(result.stderr || result.stdout || error.message)
+        done(false)
+      } else {
+        grunt.log.ok('Documentation generated to ' + options.destination)
+        done()
+      }
+    })
+  })
 
   grunt.registerTask('template', ['clean:template', 'handlebars', 'copy', 'uglify', 'cssmin'])
 

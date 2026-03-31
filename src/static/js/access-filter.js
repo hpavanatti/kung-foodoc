@@ -40,7 +40,7 @@
 				}
 				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
 				$elem.toggle(self.inherited);
-				self.$toggleInherited.closest(".checkbox-inline").toggleClass("checked", self.inherited);
+				self.$toggleInherited.closest(".form-check-inline").toggleClass("checked", self.inherited);
 			}
 		},
 		setPublic: function(){
@@ -53,7 +53,7 @@
 				}
 				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
 				$elem.toggle(self.public);
-				self.$togglePublic.closest(".checkbox-inline").toggleClass("checked", self.public);
+				self.$togglePublic.closest(".form-check-inline").toggleClass("checked", self.public);
 			}
 		},
 		setProtected: function(){
@@ -66,7 +66,7 @@
 				}
 				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
 				$elem.toggle(self.protected);
-				self.$toggleProtected.closest(".checkbox-inline").toggleClass("checked", self.protected);
+				self.$toggleProtected.closest(".form-check-inline").toggleClass("checked", self.protected);
 			}
 		},
 		setPrivate: function(){
@@ -79,7 +79,7 @@
 				}
 				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
 				$elem.toggle(self.private);
-				self.$togglePrivate.closest(".checkbox-inline").toggleClass("checked", self.private);
+				self.$togglePrivate.closest(".form-check-inline").toggleClass("checked", self.private);
 			}
 		},
 		onInheritedChanged: function(e){

@@ -5,11 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 		<title>Drive Car</title>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -20,41 +18,37 @@
 </head>
 <body>
 	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
-					FooDoc
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+			<a class="navbar-brand" href="index.html">
+				FooDoc
+			</a>
+			<!-- displayed on small devices -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavigation" aria-controls="topNavigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-							<li><a href="list_class.html">Classes</a></li>
-							<li><a href="list_mixin.html">Mixins</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li><a href="list_tutorial.html">Tutorials</a></li>
+				<ul class="navbar-nav me-auto">
+							<li class="nav-item"><a class="nav-link" href="list_class.html">Classes</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_mixin.html">Mixins</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_module.html">Modules</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_tutorial.html">Tutorials</a></li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
+					<form class="d-flex ms-auto" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
+							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
+								<i class="bi bi-search"></i>
+							</button>
 						</div>
 					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
+					<!-- start:lunr-search-navbar.hbs -->
+			</div>
 		</div>
 	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
+	<!-- end:navbar.hbs -->
+		<div class="page-header">
 			<div class="container">
 				<span class="kind">tutorial</span>
 				<h1><span class="title">Drive Car</span></h1>
@@ -64,28 +58,30 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_tutorial.html">Tutorials</a></li>
-							<li class="active">Drive Car</li>
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="list_tutorial.html">Tutorials</a></li>
+							<li class="breadcrumb-item active">Drive Car</li>
 						</ol>
 		<section class="tutorial-section">
-			<article><h1>Lorem ipsum dolor sit amet</h1><p>Curabitur est mi, fermentum lacinia tincidunt vitae, mattis sit amet neque. Quisque diam nisl, accumsan ac porta tincidunt, iaculis facilisis ipsum. Nulla facilisi. Aenean a metus tortor. Pellentesque congue, mauris vitae viverra varius, elit nunc dictum nisl, rhoncus ultrices nulla sapien at leo. Duis ultricies porttitor diam. Nulla facilisi. Nullam elementum, lorem eu imperdiet laoreet, est turpis sollicitudin velit, in porttitor justo dolor vel urna. Mauris in ante magna. Curabitur vitae lacus in magna mollis commodo.</p>
-<h2>Fusce lacinia, mauris ac aliquam consequat</h2><p>Fusce molestie blandit velit, sit amet dictum eros pharetra vitae. In erat urna, condimentum ac feugiat id, rutrum et nisi. Cras ac velit lorem. Nulla facilisi. Maecenas dignissim nulla in turpis tempus sed rhoncus augue dapibus. Nulla feugiat, urna non sagittis laoreet, dolor metus rhoncus justo, sed semper ante lacus eget quam. Sed ac ligula magna. Sed tincidunt pulvinar neque in porta. Nullam quis lacus orci. Pellentesque ornare viverra lacus, id aliquam magna venenatis a.</p>
+			<article><h1>Lorem ipsum dolor sit amet</h1>
+<p>Curabitur est mi, fermentum lacinia tincidunt vitae, mattis sit amet neque. Quisque diam nisl, accumsan ac porta tincidunt, iaculis facilisis ipsum. Nulla facilisi. Aenean a metus tortor. Pellentesque congue, mauris vitae viverra varius, elit nunc dictum nisl, rhoncus ultrices nulla sapien at leo. Duis ultricies porttitor diam. Nulla facilisi. Nullam elementum, lorem eu imperdiet laoreet, est turpis sollicitudin velit, in porttitor justo dolor vel urna. Mauris in ante magna. Curabitur vitae lacus in magna mollis commodo.</p>
+<h2>Fusce lacinia, mauris ac aliquam consequat</h2>
+<p>Fusce molestie blandit velit, sit amet dictum eros pharetra vitae. In erat urna, condimentum ac feugiat id, rutrum et nisi. Cras ac velit lorem. Nulla facilisi. Maecenas dignissim nulla in turpis tempus sed rhoncus augue dapibus. Nulla feugiat, urna non sagittis laoreet, dolor metus rhoncus justo, sed semper ante lacus eget quam. Sed ac ligula magna. Sed tincidunt pulvinar neque in porta. Nullam quis lacus orci. Pellentesque ornare viverra lacus, id aliquam magna venenatis a.</p>
 <p>Sed id tristique lorem. Ut sodales turpis nec mauris gravida interdum. Cras pellentesque, purus at suscipit euismod, elit nunc cursus nisi, ut venenatis metus sapien id velit. Sed lectus orci, pharetra non pulvinar vel, ullamcorper id lorem. Donec vulputate tincidunt ipsum, ut lacinia tortor sollicitudin id. Nunc nec nibh ut felis venenatis egestas. Proin risus mauris, eleifend eget interdum in, venenatis sed velit. Praesent sodales elit ut odio viverra posuere. Donec sapien lorem, molestie in egestas eget, vulputate sed orci. Aenean elit sapien, pellentesque vitae tempor sit amet, sagittis et ligula. Mauris aliquam sapien sit amet lacus ultrices rutrum. Curabitur nec dolor sed elit varius dignissim a a lacus. Aliquam ac convallis enim.</p>
 <p>Suspendisse orci massa, hendrerit sagittis lacinia consectetur, sagittis vitae purus. Aliquam id eros diam, eget elementum turpis. Nullam tellus magna, mollis in molestie id, venenatis rhoncus est. Proin id diam justo. Nunc tempus gravida justo at lobortis. Nam vitae venenatis nisi. Donec vel odio massa. Quisque interdum metus sit amet est iaculis tincidunt. Donec bibendum blandit purus, id semper orci aliquam quis. Nam tincidunt dolor eu felis ultricies tempor. Nulla non consectetur erat.</p></article>
 		</section>
 			</div>
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 1st May 2018 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>
@@ -94,18 +90,19 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Search results</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
 					</div>
 					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<!-- end:lunr-search-modal.hbs -->
+		<script src="js/lunr.min.js"></script>
 	
 </body>
 </html>

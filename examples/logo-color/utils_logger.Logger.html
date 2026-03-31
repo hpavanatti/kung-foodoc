@@ -5,11 +5,9 @@
 	<meta name="viewport" content="width=device-width">
 		<title>Logger</title>
 		<link rel="icon" type="image/png" href="favicon.png"/>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 			<style>
@@ -48,23 +46,19 @@
 </head>
 <body>
 	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand branding-logo" href="index.html" style="background-image: url(img/foobot-40x40.png);">
-					FooDoc
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+			<a class="navbar-brand branding-logo" href="index.html" style="background-image: url(img/foobot-40x40.png);">
+				FooDoc
+			</a>
+			<!-- displayed on small devices -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavigation" aria-controls="topNavigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-								<li class="dropdown">
-									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="navbar-nav me-auto">
+								<li class="nav-item dropdown">
+									<a href="list_class.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Classes</a>
 									<ul class="dropdown-menu">
 											<li><a href="base.html">base</a></li>
 											<li><a href="base_chains.html">base/chains</a></li>
@@ -78,16 +72,16 @@
 											<li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_mixin.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_mixin.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Mixins</a>
 									<ul class="dropdown-menu">
 											<li><a href="documents_schema.html">documents/schema</a></li>
 											<li><a href="mixins_bussable.html">mixins/bussable</a></li>
 											<li><a href="mixins_signalable.html">mixins/signalable</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_module.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Modules</a>
 									<ul class="dropdown-menu">
 											<li><a href="module-base.html">base</a></li>
 											<li><a href="module-base_chains.html">base/chains</a></li>
@@ -102,8 +96,8 @@
 											<li><a href="module-utils_logger.html">utils/logger</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_tutorial.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tutorials</a>
 									<ul class="dropdown-menu">
 											<li><a href="tutorial-brush-teeth.html">Brush Teeth</a></li>
 											<li><a href="tutorial-drive-car.html">Drive Car</a></li>
@@ -111,20 +105,20 @@
 								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
+					<form class="d-flex ms-auto" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
+							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
+								<i class="bi bi-search"></i>
+							</button>
 						</div>
 					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
+					<!-- start:lunr-search-navbar.hbs -->
+			</div>
 		</div>
 	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
+	<!-- end:navbar.hbs -->
+		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
 				<h1><span class="name">Logger</span></h1>
@@ -134,9 +128,9 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_class.html">Classes</a></li>
-							<li class="active">Logger</li>
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="list_class.html">Classes</a></li>
+							<li class="breadcrumb-item active">Logger</li>
 						</ol>
 					<section>
 							<dl class="symbol primary">
@@ -145,8 +139,9 @@
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>A logger class that you can mix into your classes to handle logging settings and state at an object level.<br>See utils/logger for the members of this class</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>A logger class that you can mix into your classes to handle logging settings and state at an object level.<br>
+			See utils/logger for the members of this class</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -163,19 +158,19 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-20">line 20</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-20">line 20</a></p>
 								</div>
 							</div>
 			
 			
 							<!-- see -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">See</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">See</label>
 								<div class="col-sm-9">
-										<p class="form-control-static">utils/logger</p>
+										<p class="form-control-plaintext">utils/logger</p>
 								</div>
 							</div>
 			
@@ -193,8 +188,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Turn off all logging. If you log something, it will not error, but will not do anything either<br>and the cycles are minimal.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Turn off all logging. If you log something, it will not error, but will not do anything either<br>
+			and the cycles are minimal.</p></div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -211,10 +207,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-28">line 28</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-28">line 28</a></p>
 								</div>
 							</div>
 			
@@ -231,7 +227,7 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Turns on all logging levels</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -248,10 +244,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-35">line 35</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-35">line 35</a></p>
 								</div>
 							</div>
 			
@@ -289,7 +285,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -306,10 +302,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-43">line 43</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-43">line 43</a></p>
 								</div>
 							</div>
 			
@@ -347,7 +343,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -364,10 +360,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-55">line 55</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-55">line 55</a></p>
 								</div>
 							</div>
 			
@@ -405,7 +401,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -422,10 +418,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-61">line 61</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-61">line 61</a></p>
 								</div>
 							</div>
 			
@@ -463,7 +459,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -480,10 +476,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-67">line 67</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-67">line 67</a></p>
 								</div>
 							</div>
 			
@@ -521,7 +517,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -538,10 +534,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-73">line 73</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-73">line 73</a></p>
 								</div>
 							</div>
 			
@@ -579,7 +575,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -596,10 +592,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-79">line 79</a></p>
+									<p class="form-control-plaintext"><a href="utils_logger.js.html">utils/logger.js</a>, <a href="utils_logger.js.html#line-79">line 79</a></p>
 								</div>
 							</div>
 			
@@ -614,16 +610,16 @@
 					</section>
 			</div>
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 1st May 2018 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>
@@ -632,18 +628,19 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Search results</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
 					</div>
 					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<!-- end:lunr-search-modal.hbs -->
+		<script src="js/lunr.min.js"></script>
 	
 </body>
 </html>

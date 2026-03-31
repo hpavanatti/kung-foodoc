@@ -7,17 +7,7 @@ const fs = require('jsdoc/fs')
 const helper = require('jsdoc/util/templateHelper')
 
 const store = exports.store = {}
-const index = exports.index = lunr(function () {
-  this.field('longname', { boost: 1000 })
-  this.field('name', { boost: 500 })
-  this.field('tags', { boost: 300 })
-  this.field('kind', { boost: 110 })
-  this.field('title', { boost: 100 })
-  this.field('summary', { boost: 70 })
-  this.field('description', { boost: 50 })
-  this.field('body')
-  this.ref('id')
-})
+const documents = []
 
 const sanitize = function (html) {
   if (typeof html !== 'string') return undefined
@@ -60,7 +50,7 @@ const parseBody = function (html) {
 
 const add = exports.add = function (doclet, html) {
   const id = helper.longnameToUrl[doclet.longname]
-  index.add(store[id] = {
+  const doc = {
     id,
     kind: doclet.kind,
     title: doclet.pageTitle,
@@ -70,7 +60,9 @@ const add = exports.add = function (doclet, html) {
     summary: sanitize(helper.resolveLinks(doclet.summary)),
     description: sanitize(helper.resolveLinks(doclet.classdesc || doclet.description)),
     body: parseBody(html)
-  })
+  }
+  store[id] = doc
+  documents.push(doc)
   if (doclet.kind === 'class' || doclet.kind === 'namespace') {
     doclet.symbols.member.forEach(function (member) {
       add(member)
@@ -85,6 +77,22 @@ const add = exports.add = function (doclet, html) {
 }
 
 exports.writeFilesSync = function (pretty) {
+  const index = lunr(function () {
+    this.field('longname', { boost: 1000 })
+    this.field('name', { boost: 500 })
+    this.field('tags', { boost: 300 })
+    this.field('kind', { boost: 110 })
+    this.field('title', { boost: 100 })
+    this.field('summary', { boost: 70 })
+    this.field('description', { boost: 50 })
+    this.field('body')
+    this.ref('id')
+    const self = this
+    documents.forEach(function (doc) {
+      self.add(doc)
+    })
+  })
+
   const jsonFile = path.join(template.config.dir.output, 'js/lunr-data.json')
   const dataFile = path.join(template.config.dir.output, 'js/lunr-data.js')
   const data = { index, store }

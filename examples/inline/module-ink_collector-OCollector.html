@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 		<title>ink/collector~OCollector</title>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -19,41 +17,37 @@
 </head>
 <body>
 	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
-					FooDoc
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+			<a class="navbar-brand" href="index.html">
+				FooDoc
+			</a>
+			<!-- displayed on small devices -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavigation" aria-controls="topNavigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-							<li><a href="list_class.html">Classes</a></li>
-							<li><a href="list_mixin.html">Mixins</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li><a href="list_tutorial.html">Tutorials</a></li>
+				<ul class="navbar-nav me-auto">
+							<li class="nav-item"><a class="nav-link" href="list_class.html">Classes</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_mixin.html">Mixins</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_module.html">Modules</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_tutorial.html">Tutorials</a></li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
+					<form class="d-flex ms-auto" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
+							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
+								<i class="bi bi-search"></i>
+							</button>
 						</div>
 					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
+					<!-- start:lunr-search-navbar.hbs -->
+			</div>
 		</div>
 	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
+	<!-- end:navbar.hbs -->
+		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
 				<h1><span class="ancestors"><a href="module-ink_collector.html">ink/collector</a>~</span><span class="name">OCollector</span></h1>
@@ -63,19 +57,19 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="module-ink_collector.html">ink/collector</a>~OCollector</li>
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="list_class.html">Classes</a></li>
+							<li class="breadcrumb-item active"><a href="module-ink_collector.html">ink/collector</a>~OCollector</li>
 						</ol>
 						<div class="access-filter">
-								<label class="checkbox-inline">
-									<input class="toggle-inherited" type="checkbox" value="" checked>
-									Inherited
-								</label>
-								<label class="checkbox-inline">
-									<input class="toggle-public" type="checkbox" value="" checked>
-									Public
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-inherited" type="checkbox" value="" checked>
+									<label class="form-check-label">Inherited</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-public" type="checkbox" value="" checked>
+									<label class="form-check-label">Public</label>
+								</div>
 						</div>
 					<section>
 							<dl class="symbol primary">
@@ -85,15 +79,15 @@
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>An object based collector</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
 							<!-- augments -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Augments</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Augments</label>
 								<div class="col-sm-9">
-										<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html">module:documents/collector~CollectorBase</a></p>
+										<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html">module:documents/collector~CollectorBase</a></p>
 								</div>
 							</div>
 			
@@ -109,10 +103,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-251">line 251</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-251">line 251</a></p>
 								</div>
 							</div>
 			
@@ -133,13 +127,13 @@
 <dd class="symbol-details member public inherited  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get the size of the collection</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type">number</span></div>
+									<div class="form-control-plaintext type-names"><span class="param-type">number</span></div>
 								</div>
 							</div>
 			
@@ -148,10 +142,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#length">module:documents/collector~CollectorBase#length</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#length">module:documents/collector~CollectorBase#length</a></p>
 								</div>
 							</div>
 			
@@ -164,10 +158,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-29">line 29</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-29">line 29</a></p>
 								</div>
 							</div>
 			
@@ -208,15 +202,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -224,10 +218,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#every">module:documents/collector~CollectorBase#every</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#every">module:documents/collector~CollectorBase#every</a></p>
 								</div>
 							</div>
 			
@@ -240,10 +234,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-379">line 379</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-379">line 379</a></p>
 								</div>
 							</div>
 			
@@ -281,15 +275,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -297,10 +291,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#some">module:documents/collector~CollectorBase#some</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#some">module:documents/collector~CollectorBase#some</a></p>
 								</div>
 							</div>
 			
@@ -313,10 +307,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-390">line 390</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-390">line 390</a></p>
 								</div>
 							</div>
 			
@@ -354,15 +348,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">array</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -370,10 +364,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#unique">module:documents/collector~CollectorBase#unique</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#unique">module:documents/collector~CollectorBase#unique</a></p>
 								</div>
 							</div>
 			
@@ -386,10 +380,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-401">line 401</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-401">line 401</a></p>
 								</div>
 							</div>
 			
@@ -427,15 +421,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -443,10 +437,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#all">module:documents/collector~CollectorBase#all</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#all">module:documents/collector~CollectorBase#all</a></p>
 								</div>
 							</div>
 			
@@ -459,10 +453,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-411">line 411</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-411">line 411</a></p>
 								</div>
 							</div>
 			
@@ -500,15 +494,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -516,10 +510,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#any">module:documents/collector~CollectorBase#any</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#any">module:documents/collector~CollectorBase#any</a></p>
 								</div>
 							</div>
 			
@@ -532,10 +526,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-422">line 422</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-422">line 422</a></p>
 								</div>
 							</div>
 			
@@ -573,15 +567,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span> | <span class="param-type">array</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span> | <span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>The array or object as appropriate without the records.</p></div>
+									<div class="form-control-plaintext returns-description"><p>The array or object as appropriate without the records.</p></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -589,10 +583,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#remove">module:documents/collector~CollectorBase#remove</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#remove">module:documents/collector~CollectorBase#remove</a></p>
 								</div>
 							</div>
 			
@@ -605,10 +599,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-433">line 433</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-433">line 433</a></p>
 								</div>
 							</div>
 			
@@ -624,7 +618,8 @@
 		</dt>
 <dd class="symbol-details function public inherited  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the first record that matches the query and returns its key or index depending on whether <code>obj</code> is an object or array respectively.<br> Aliased as <code>seekKey</code>.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the first record that matches the query and returns its key or index depending on whether <code>obj</code> is an object or array respectively.<br>
+			Aliased as <code>seekKey</code>.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -646,15 +641,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -662,10 +657,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#findOneKey">module:documents/collector~CollectorBase#findOneKey</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#findOneKey">module:documents/collector~CollectorBase#findOneKey</a></p>
 								</div>
 							</div>
 			
@@ -678,10 +673,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-443">line 443</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-443">line 443</a></p>
 								</div>
 							</div>
 			
@@ -719,15 +714,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -735,10 +730,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#findOne">module:documents/collector~CollectorBase#findOne</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#findOne">module:documents/collector~CollectorBase#findOne</a></p>
 								</div>
 							</div>
 			
@@ -751,10 +746,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-455">line 455</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-455">line 455</a></p>
 								</div>
 							</div>
 			
@@ -770,7 +765,8 @@
 		</dt>
 <dd class="symbol-details function public inherited  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Find all records that match a query and returns the keys for those items. This is similar to module:ink/probe.find but instead of returning<br> records, returns the keys. If <code>obj</code> is an object it will return the hash key. If 'obj' is an array, it will return the index</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Find all records that match a query and returns the keys for those items. This is similar to module:ink/probe.find but instead of returning<br>
+			records, returns the keys. If <code>obj</code> is an object it will return the hash key. If 'obj' is an array, it will return the index</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -792,15 +788,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">array</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -808,10 +804,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#findKeys">module:documents/collector~CollectorBase#findKeys</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#findKeys">module:documents/collector~CollectorBase#findKeys</a></p>
 								</div>
 							</div>
 			
@@ -824,10 +820,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-466">line 466</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-466">line 466</a></p>
 								</div>
 							</div>
 			
@@ -865,15 +861,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">array</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"><p>The results</p></div>
+									<div class="form-control-plaintext returns-description"><p>The results</p></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -881,10 +877,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#find">module:documents/collector~CollectorBase#find</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#find">module:documents/collector~CollectorBase#find</a></p>
 								</div>
 							</div>
 			
@@ -897,10 +893,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-478">line 478</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-478">line 478</a></p>
 								</div>
 							</div>
 			
@@ -945,7 +941,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -953,10 +949,10 @@
 			
 			
 							<!-- inherits -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Inherited From</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Inherited From</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="module-documents_collector-CollectorBase.html#update">module:documents/collector~CollectorBase#update</a></p>
+									<p class="form-control-plaintext"><a href="module-documents_collector-CollectorBase.html#update">module:documents/collector~CollectorBase#update</a></p>
 								</div>
 							</div>
 			
@@ -969,10 +965,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-488">line 488</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-488">line 488</a></p>
 								</div>
 							</div>
 			
@@ -987,16 +983,16 @@
 					</section>
 			</div>
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 1st May 2018 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>
@@ -1005,18 +1001,19 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Search results</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
 					</div>
 					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<!-- end:lunr-search-modal.hbs -->
+		<script src="js/lunr.min.js"></script>
 	
 </body>
 </html>

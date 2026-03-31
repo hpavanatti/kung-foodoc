@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 		<title>mixins/signalable~Signal</title>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -19,23 +17,19 @@
 </head>
 <body>
 	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
-					FooDoc
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+			<a class="navbar-brand" href="index.html">
+				FooDoc
+			</a>
+			<!-- displayed on small devices -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavigation" aria-controls="topNavigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-								<li class="dropdown">
-									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="navbar-nav me-auto">
+								<li class="nav-item dropdown">
+									<a href="list_class.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Classes</a>
 									<ul class="dropdown-menu">
 											<li><a href="base.html">base</a></li>
 											<li><a href="base_chains.html">base/chains</a></li>
@@ -49,16 +43,16 @@
 											<li><a href="utils_logger.Logger.html">utils/logger.Logger</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_mixin.html" class="dropdown-toggle" data-toggle="dropdown">Mixins<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_mixin.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Mixins</a>
 									<ul class="dropdown-menu">
 											<li><a href="documents_schema.html">documents/schema</a></li>
 											<li><a href="mixins_bussable.html">mixins/bussable</a></li>
 											<li><a href="mixins_signalable.html">mixins/signalable</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_module.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Modules</a>
 									<ul class="dropdown-menu">
 											<li><a href="module-base.html">base</a></li>
 											<li><a href="module-base_chains.html">base/chains</a></li>
@@ -73,8 +67,8 @@
 											<li><a href="module-utils_logger.html">utils/logger</a></li>
 									</ul>
 								</li>
-								<li class="dropdown">
-									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+								<li class="nav-item dropdown">
+									<a href="list_tutorial.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tutorials</a>
 									<ul class="dropdown-menu">
 											<li><a href="tutorial-brush-teeth.html">Brush Teeth</a></li>
 											<li><a href="tutorial-drive-car.html">Drive Car</a></li>
@@ -82,20 +76,20 @@
 								</li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
+					<form class="d-flex ms-auto" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
+							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
+								<i class="bi bi-search"></i>
+							</button>
 						</div>
 					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
+					<!-- start:lunr-search-navbar.hbs -->
+			</div>
 		</div>
 	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
+	<!-- end:navbar.hbs -->
+		<div class="page-header">
 			<div class="container">
 				<span class="kind">class</span>
 				<h1><span class="ancestors"><a href="module-mixins_signalable.html">mixins/signalable</a>~</span><span class="name">Signal</span></h1>
@@ -105,19 +99,19 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_class.html">Classes</a></li>
-							<li class="active"><a href="module-mixins_signalable.html">mixins/signalable</a>~Signal</li>
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="list_class.html">Classes</a></li>
+							<li class="breadcrumb-item active"><a href="module-mixins_signalable.html">mixins/signalable</a>~Signal</li>
 						</ol>
 						<div class="access-filter">
-								<label class="checkbox-inline">
-									<input class="toggle-public" type="checkbox" value="" checked>
-									Public
-								</label>
-								<label class="checkbox-inline">
-									<input class="toggle-private" type="checkbox" value="" checked>
-									Private
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-public" type="checkbox" value="" checked>
+									<label class="form-check-label">Public</label>
+								</div>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-private" type="checkbox" value="" checked>
+									<label class="form-check-label">Private</label>
+								</div>
 						</div>
 					<section>
 							<dl class="symbol primary">
@@ -126,7 +120,8 @@
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>A signal that can be raised on an object. When you deploy the <code>Signalable</code> mixin, it<br>creates instances of these for you.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>A signal that can be raised on an object. When you deploy the <code>Signalable</code> mixin, it<br>
+			creates instances of these for you.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -158,13 +153,13 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 							<!-- type -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Type</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Type</label>
 								<div class="col-sm-9">
-									<div class="form-control-static type-names"><span class="param-type"><a href="module-mixins_signalable.html#.SignalOptions">module:mixins/signalable.SignalOptions</a></span></div>
+									<div class="form-control-plaintext type-names"><span class="param-type"><a href="module-mixins_signalable.html#.SignalOptions">module:mixins/signalable.SignalOptions</a></span></div>
 								</div>
 							</div>
 			
@@ -182,10 +177,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-53">line 53</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-53">line 53</a></p>
 								</div>
 							</div>
 			
@@ -206,7 +201,7 @@
 <dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Cleans up</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -223,10 +218,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-70">line 70</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-70">line 70</a></p>
 								</div>
 							</div>
 			
@@ -282,15 +277,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">SignalBinding</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">SignalBinding</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -307,10 +302,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-83">line 83</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-83">line 83</a></p>
 								</div>
 							</div>
 			
@@ -366,15 +361,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">SignalBinding</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">SignalBinding</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -391,10 +386,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-102">line 102</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-102">line 102</a></p>
 								</div>
 							</div>
 			
@@ -442,15 +437,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">function</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">function</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -467,10 +462,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-120">line 120</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-120">line 120</a></p>
 								</div>
 							</div>
 			
@@ -518,15 +513,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">boolean</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">boolean</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -543,10 +538,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-130">line 130</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-130">line 130</a></p>
 								</div>
 							</div>
 			
@@ -563,7 +558,7 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Strings!</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -580,10 +575,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-137">line 137</a></p>
+									<p class="form-control-plaintext"><a href="mixins_signalable.js.html">mixins/signalable.js</a>, <a href="mixins_signalable.js.html#line-137">line 137</a></p>
 								</div>
 							</div>
 			
@@ -598,16 +593,16 @@
 					</section>
 			</div>
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 1st May 2018 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>
@@ -616,18 +611,19 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Search results</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
 					</div>
 					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<!-- end:lunr-search-modal.hbs -->
+		<script src="js/lunr.min.js"></script>
 	
 </body>
 </html>

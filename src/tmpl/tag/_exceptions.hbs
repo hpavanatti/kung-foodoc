@@ -1,11 +1,11 @@
 {{#if exceptions}}
 	{{#callout "Throws" "callout-danger"}}
-		<form class="form-horizontal exceptions">
+		<form class="details-form exceptions">
 			{{#each exceptions}}
-				<div class="form-group">
-					<label class="col-sm-3 control-label exceptions-type">{{type-names type}}</label>
+				<div class="row mb-2">
+					<label class="col-sm-3 col-form-label exceptions-type">{{type-names type}}</label>
 					<div class="col-sm-9">
-						<div class="form-control-static exceptions-description">{{{description}}}</div>
+						<div class="form-control-plaintext exceptions-description">{{{description}}}</div>
 					</div>
 				</div>
 			{{/each}}

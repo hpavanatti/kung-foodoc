@@ -162,7 +162,7 @@
 	 */
 	LunrSearch.prototype.$createPagination = function(totalPages){
 		if (totalPages <= 1) return $();
-		var $ul = $('<ul/>', {'class': 'pagination pagination-sm pull-left'});
+		var $ul = $('<ul/>', {'class': 'pagination pagination-sm float-start'});
 		for (var i = 0; i < totalPages; i++){
 			var $link = $('<a/>', {href: '#lunr-search-result-page-' + i, text: i + 1}).on('click', {self: this}, this.onPaginationClick),
 				$li = $('<li/>').append($link);
@@ -229,7 +229,8 @@
 			// create the pagination component if required and append it to the footer and show the modal.
 			self.$pagination = self.$createPagination(pages.length);
 			self.$footer.prepend(self.$pagination);
-			self.$modal.modal({show: true});
+			var modal = bootstrap.Modal.getOrCreateInstance(self.$modal[0]);
+			modal.show();
 		});
 	};
 

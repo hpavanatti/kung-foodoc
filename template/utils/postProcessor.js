@@ -4,8 +4,19 @@ const helper = require('jsdoc/util/templateHelper')
 const handle = require('jsdoc/util/error').handle
 const template = require('./template')
 const doc = require('./docletHelper')
-const glob = require('glob')
-const extend = require('extend')
+const { globSync } = require('glob')
+
+function deepMerge (target, source) {
+  for (const key of Object.keys(source)) {
+    if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key]) &&
+        target[key] && typeof target[key] === 'object' && !Array.isArray(target[key])) {
+      deepMerge(target[key], source[key])
+    } else {
+      target[key] = source[key]
+    }
+  }
+  return target
+}
 
 exports.process = function () {
   template.raw.data.sort(template.options.sort)
@@ -252,10 +263,10 @@ const flattenTutorialConfig = function (obj, base) {
 
 const getTutorialToConfig = function () {
   if (!template.config.dir.tutorials) return {}
-  const files = glob.sync('*.json', { cwd: template.config.dir.tutorials }); const json = {}
+  const files = globSync('*.json', { cwd: template.config.dir.tutorials }); const json = {}
   files.forEach(function (file) {
     const raw = fs.readFileSync(path.join(template.config.dir.tutorials, file), 'utf8')
-    extend(true, json, JSON.parse(raw))
+    deepMerge(json, JSON.parse(raw))
   })
   return flattenTutorialConfig(json)
 }

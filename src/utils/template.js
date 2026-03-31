@@ -5,8 +5,10 @@ const hbs = require('./handlebarsHelper')
 const lunr = require('./lunrHelper')
 const processor = require('./postProcessor')
 const sanitizeHtml = require('sanitize-html')
-const extend = require('extend')
-const moment = require('moment')
+const env = require('jsdoc/env')
+const dayjs = require('dayjs')
+const advancedFormat = require('dayjs/plugin/advancedFormat')
+dayjs.extend(advancedFormat)
 
 const kinds = exports.kinds = {
   custom: ['readme', 'global', 'source', 'tutorial', 'list'],
@@ -15,7 +17,7 @@ const kinds = exports.kinds = {
   global: ['member', 'function', 'constant', 'typedef']
 }
 
-const options = exports.options = extend({
+const options = exports.options = Object.assign({
   includeDate: true,
   dateFormat: 'Do MMM YYYY',
   systemName: 'FooDoc',
@@ -68,7 +70,7 @@ const config = exports.config = {
   debug: false,
   raw: env.opts,
   version: env.version.number,
-  date: moment().format(options.dateFormat),
+  date: dayjs().format(options.dateFormat),
   faviconType: options.favicon ? faviconTypes[path.extname(options.favicon)] : null,
   dir: {
     root: null,
@@ -86,9 +88,59 @@ const raw = exports.raw = {
   tutorials: []
 }
 
+/**
+ * @summary Patches a Salty database to add TaffyDB-compatible `insert` and `order` methods
+ * that are not present in @jsdoc/salty (JSDoc 4's replacement for TaffyDB).
+ */
+function patchSaltyDb (db) {
+  // Add insert method: pushes items into the internal _items array
+  if (!db.insert) {
+    db.insert = function (items) {
+      // Access the Salty instance's _items via a query
+      const salty = db()
+      const internalItems = salty._items
+      if (Array.isArray(items)) {
+        items.forEach(function (item) { internalItems.push(item) })
+      } else {
+        internalItems.push(items)
+      }
+    }
+  }
+
+  // Patch query results to add `order` method (alias for sort + get pattern)
+  const originalDb = db.bind(null)
+  const patchedDb = function () {
+    const result = originalDb.apply(null, arguments)
+    if (!result.order) {
+      result.order = function (keys) {
+        const items = result.get()
+        const keyList = keys.split(',').map(function (k) { return k.trim() })
+        keyList.reverse()
+        keyList.forEach(function (key) {
+          items.sort(function (a, b) {
+            const aVal = a[key]
+            const bVal = b[key]
+            if (aVal == null && bVal == null) return 0
+            if (aVal == null) return 1
+            if (bVal == null) return -1
+            if (aVal < bVal) return -1
+            if (aVal > bVal) return 1
+            return 0
+          })
+        })
+        return { get: function () { return items } }
+      }
+    }
+    return result
+  }
+  patchedDb.sort = db.sort
+  patchedDb.insert = db.insert
+  return patchedDb
+}
+
 let configured = false
 exports.configure = function (taffyData, opts, tutorials) {
-  raw.data = helper.prune(taffyData)
+  raw.data = patchSaltyDb(helper.prune(taffyData))
   raw.opts = opts
   raw.tutorials = tutorials
   config.dir.root = opts.templates

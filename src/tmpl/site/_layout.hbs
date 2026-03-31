@@ -8,11 +8,9 @@
 		{{#if options.favicon}}
 		<link rel="icon" type="{{config.faviconType}}" href="{{options.favicon}}"/>
 		{{/if}}
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		{{#each options.stylesheets}}
@@ -73,35 +71,35 @@
 					{{#if crumbs}}
 						<ol class="breadcrumb">
 							{{#each crumbs}}
-							<li{{#if @last}} class="active"{{/if}}>{{{.}}}</li>
+							<li class="breadcrumb-item{{#if @last}} active{{/if}}">{{{.}}}</li>
 							{{/each}}
 						</ol>
 					{{/if}}
 					{{#if doclet.showAccessFilter}}
 						<div class="access-filter">
 							{{#if doclet.has.inherited}}
-								<label class="checkbox-inline">
-									<input class="toggle-inherited" type="checkbox" value="" checked>
-									Inherited
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-inherited" type="checkbox" value="" checked>
+									<label class="form-check-label">Inherited</label>
+								</div>
 							{{/if}}
 							{{#if doclet.has.public}}
-								<label class="checkbox-inline">
-									<input class="toggle-public" type="checkbox" value="" checked>
-									Public
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-public" type="checkbox" value="" checked>
+									<label class="form-check-label">Public</label>
+								</div>
 							{{/if}}
 							{{#if doclet.has.protected}}
-								<label class="checkbox-inline">
-									<input class="toggle-protected" type="checkbox" value="" checked>
-									Protected
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-protected" type="checkbox" value="" checked>
+									<label class="form-check-label">Protected</label>
+								</div>
 							{{/if}}
 							{{#if doclet.has.private}}
-								<label class="checkbox-inline">
-									<input class="toggle-private" type="checkbox" value="" checked>
-									Private
-								</label>
+								<div class="form-check form-check-inline">
+									<input class="form-check-input toggle-private" type="checkbox" value="" checked>
+									<label class="form-check-label">Private</label>
+								</div>
 							{{/if}}
 						</div>
 					{{/if}}
@@ -203,7 +201,7 @@
 			</div>
 			{{#if doclet.showTableOfContents}}
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 			{{/if}}
 		</div>
@@ -226,7 +224,7 @@
 		</div>
 	{{/if}}
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>

@@ -28,7 +28,7 @@
 .callout code {
 	border-radius: 3px;
 }
-.callout .control-label {
+.callout .col-form-label {
 	color: #999;
 	font-weight: normal;
 }
@@ -85,10 +85,10 @@
 	color: #8461b9;
 }
 
-.callout .form-group {
+.callout .row.mb-2 {
 	margin-bottom: 5px;
 }
-.callout .form-group > div.control-static > p {
+.callout .row.mb-2 > div.form-control-plaintext > p {
 	min-height: 34px;
 	padding-top: 7px;
 	padding-bottom: 7px;

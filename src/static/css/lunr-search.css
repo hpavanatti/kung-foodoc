@@ -47,12 +47,12 @@ p.lunr-search-result-summary {
 }
 
 @media (min-width: 992px) {
-	.navbar-form {
+	form[role="search"] {
 		width: 228px;/* 3 col */
 	}
 }
 @media (min-width: 1200px) {
-	.navbar-form {
+	form[role="search"] {
 		width: 278px;/* 3 col*/
 	}
 }

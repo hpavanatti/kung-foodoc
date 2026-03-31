@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 		<title>ink/collector</title>
-		<!--[if lt IE 9]>
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -19,41 +17,37 @@
 </head>
 <body>
 	<!-- start:navbar.hbs -->
-	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<header class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
 		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.html">
-					FooDoc
-				</a>
-				<!-- displayed on small devices -->
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
+			<a class="navbar-brand" href="index.html">
+				FooDoc
+			</a>
+			<!-- displayed on small devices -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavigation" aria-controls="topNavigation" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 			<div class="navbar-collapse collapse" id="topNavigation">
-				<ul class="nav navbar-nav">
-							<li><a href="list_class.html">Classes</a></li>
-							<li><a href="list_mixin.html">Mixins</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li><a href="list_tutorial.html">Tutorials</a></li>
+				<ul class="navbar-nav me-auto">
+							<li class="nav-item"><a class="nav-link" href="list_class.html">Classes</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_mixin.html">Mixins</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_module.html">Modules</a></li>
+							<li class="nav-item"><a class="nav-link" href="list_tutorial.html">Tutorials</a></li>
 				</ul>
 					<!-- start:lunr-search-navbar.hbs -->
-					<form class="navbar-form navbar-right" role="search">
+					<form class="d-flex ms-auto" role="search">
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
-							<div class="input-group-btn">
-								<button class="btn btn-default" id="lunr-search-submit">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</div>
+							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
+								<i class="bi bi-search"></i>
+							</button>
 						</div>
 					</form>
-					<!-- start:lunr-search-navbar.hbs -->		</div>
+					<!-- start:lunr-search-navbar.hbs -->
+			</div>
 		</div>
 	</header>
-	<!-- end:navbar.hbs -->		<div class="page-header">
+	<!-- end:navbar.hbs -->
+		<div class="page-header">
 			<div class="container">
 				<span class="kind">module</span>
 				<h1><span class="name">ink/collector</span></h1>
@@ -63,9 +57,9 @@
 		<div class="row">
 			<div class="col-md-9 main-content">
 						<ol class="breadcrumb">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="list_module.html">Modules</a></li>
-							<li class="active">ink/collector</li>
+							<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+							<li class="breadcrumb-item"><a href="list_module.html">Modules</a></li>
+							<li class="breadcrumb-item active">ink/collector</li>
 						</ol>
 					<section>
 		<dl class="symbol">
@@ -73,7 +67,7 @@
 			<dd class="symbol-details ">
 				<div class="symbol-details-inner">
 					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>An object and array collector</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 					
 					
 					
@@ -90,10 +84,10 @@
 					
 					
 									<!-- source -->
-									<div class="form-group">
-										<label class="col-sm-3 control-label">Source</label>
+									<div class="row mb-2">
+										<label class="col-sm-3 col-form-label">Source</label>
 										<div class="col-sm-9">
-											<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-2">line 2</a></p>
+											<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-2">line 2</a></p>
 										</div>
 									</div>
 					
@@ -169,7 +163,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -186,10 +180,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-56">line 56</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-56">line 56</a></p>
 								</div>
 							</div>
 			
@@ -205,7 +199,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Iterate over each item in the collection, or a subset that matches a query. This supports two signatures:<br><code>.each(query, function)</code> and <code>.each(function)</code>. If you pass in a query, only the items that match the query<br>are iterated over.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Iterate over each item in the collection, or a subset that matches a query. This supports two signatures:<br>
+			<code>.each(query, function)</code> and <code>.each(function)</code>. If you pass in a query, only the items that match the query<br>
+			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -245,7 +241,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -262,10 +258,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-67">line 67</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-67">line 67</a></p>
 								</div>
 							</div>
 			
@@ -282,15 +278,15 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the collection as an array. If it is already an array, it just returns that.</p></div>
-			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">array</span></label>
+			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -307,10 +303,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-80">line 80</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-80">line 80</a></p>
 								</div>
 							</div>
 			
@@ -327,21 +323,21 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Supports conversion to a JSON string or for passing over the wire</p></div>
-			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span></label>
+			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">Object</span> | <span class="param-type">array</span></label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">Object</span> | <span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -358,10 +354,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-88">line 88</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-88">line 88</a></p>
 								</div>
 							</div>
 			
@@ -377,7 +373,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Maps the contents to an array by iterating over it and transforming it. You supply the iterator. Supports two signatures:<br><code>.map(query, function)</code> and <code>.map(function)</code>. If you pass in a query, only the items that match the query<br>are iterated over.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Maps the contents to an array by iterating over it and transforming it. You supply the iterator. Supports two signatures:<br>
+			<code>.map(query, function)</code> and <code>.map(function)</code>. If you pass in a query, only the items that match the query<br>
+			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -417,7 +415,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -434,10 +432,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-99">line 99</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-99">line 99</a></p>
 								</div>
 							</div>
 			
@@ -453,7 +451,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduces a collection to a value which is the accumulated result of running each element in the collection through the<br>callback, where each successive callback execution consumes the return value of the previous execution. If accumulator<br>is not passed, the first element of the collection will be used as the initial accumulator value.<br>are iterated over.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduces a collection to a value which is the accumulated result of running each element in the collection through the<br>
+			callback, where each successive callback execution consumes the return value of the previous execution. If accumulator<br>
+			is not passed, the first element of the collection will be used as the initial accumulator value.<br>
+			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -501,15 +502,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">*</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -526,10 +527,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-119">line 119</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-119">line 119</a></p>
 								</div>
 							</div>
 			
@@ -545,7 +546,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element<br>of the collection through the given callback. The corresponding value of each key<br>is the number of times the key was returned by the callback.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element<br>
+			of the collection through the given callback. The corresponding value of each key<br>
+			is the number of times the key was returned by the callback.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -563,7 +566,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>A query to evaluate. If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>A query to evaluate. If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -584,15 +588,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -609,10 +613,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-138">line 138</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-138">line 138</a></p>
 								</div>
 							</div>
 			
@@ -628,7 +632,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element of the collection through the callback.<br>The corresponding value of each key is an array of elements passed to callback that returned the key.<br>The callback is invoked with three arguments: (value, index|key, collection).</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element of the collection through the callback.<br>
+			The corresponding value of each key is an array of elements passed to callback that returned the key.<br>
+			The callback is invoked with three arguments: (value, index|key, collection).</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -646,7 +652,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -667,15 +674,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">object</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -692,10 +699,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-157">line 157</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-157">line 157</a></p>
 								</div>
 							</div>
 			
@@ -711,7 +718,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduce the collection to a single value. Supports two signatures:<br><code>.pluck(query, function)</code> and <code>.pluck(function)</code></p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduce the collection to a single value. Supports two signatures:<br>
+			<code>.pluck(query, function)</code> and <code>.pluck(function)</code></p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -729,7 +737,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The query to evaluate. If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>The query to evaluate. If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -743,15 +752,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">*</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -768,10 +777,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-174">line 174</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-174">line 174</a></p>
 								</div>
 							</div>
 			
@@ -805,7 +814,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>The query to evaluate. If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>The query to evaluate. If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -826,15 +836,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">array</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -851,10 +861,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-193">line 193</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-193">line 193</a></p>
 								</div>
 							</div>
 			
@@ -870,7 +880,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the maximum value of an array. If callback is passed,<br>it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the maximum value of an array. If callback is passed,<br>
+			it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -888,7 +899,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -909,15 +921,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -934,10 +946,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-211">line 211</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-211">line 211</a></p>
 								</div>
 							</div>
 			
@@ -953,7 +965,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the minimum value of an array. If callback is passed,<br>it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the minimum value of an array. If callback is passed,<br>
+			it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -971,7 +984,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -992,15 +1006,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1017,10 +1031,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-229">line 229</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-229">line 229</a></p>
 								</div>
 							</div>
 			
@@ -1037,7 +1051,7 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Destructor called when the object is destroyed.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1054,10 +1068,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-241">line 241</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-241">line 241</a></p>
 								</div>
 							</div>
 			
@@ -1095,15 +1109,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">*</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1120,10 +1134,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-257">line 257</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-257">line 257</a></p>
 								</div>
 							</div>
 			
@@ -1161,7 +1175,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1178,10 +1192,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-296">line 296</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-296">line 296</a></p>
 								</div>
 							</div>
 			
@@ -1219,7 +1233,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1236,10 +1250,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-303">line 303</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-303">line 303</a></p>
 								</div>
 							</div>
 			
@@ -1277,7 +1291,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1294,10 +1308,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-310">line 310</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-310">line 310</a></p>
 								</div>
 							</div>
 			
@@ -1314,7 +1328,7 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Modifies the collection with all falsey values of array removed. The values false, null, 0, &quot;&quot;, undefined and NaN are all falsey.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1331,10 +1345,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-316">line 316</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-316">line 316</a></p>
 								</div>
 							</div>
 			
@@ -1350,7 +1364,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an array of elements from the specified indexes, or keys, of the collection. Indexes may be specified as<br>individual arguments or as arrays of indexes</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an array of elements from the specified indexes, or keys, of the collection. Indexes may be specified as<br>
+			individual arguments or as arrays of indexes</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -1372,7 +1387,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1389,10 +1404,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-324">line 324</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-324">line 324</a></p>
 								</div>
 							</div>
 			
@@ -1408,7 +1423,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Flattens a nested array (the nesting can be to any depth). If isShallow is truthy, array will only be flattened a single level.<br>If callback is passed, each element of array is passed through a callback before flattening.</p></div>
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Flattens a nested array (the nesting can be to any depth). If isShallow is truthy, array will only be flattened a single level.<br>
+			If callback is passed, each element of array is passed through a callback before flattening.</p></div>
 			</div>			<div class="callout callout-info">
 				<h5>Parameters</h5>
 				<table class="params table table-striped">
@@ -1426,7 +1442,8 @@
 							<td><span class="param-type">object</span></td>
 								<td class="attributes">&lt;optional&gt;<br/></td>
 							<td class="last">
-									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>are iterated over.</p>
+									<p>A query to evaluate . If you pass in a query, only the items that match the query<br>
+			are iterated over.</p>
 							</td>
 						</tr>
 						<tr>
@@ -1447,15 +1464,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1472,10 +1489,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-338">line 338</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-338">line 338</a></p>
 								</div>
 							</div>
 			
@@ -1513,15 +1530,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">*</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1538,10 +1555,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-352">line 352</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-352">line 352</a></p>
 								</div>
 							</div>
 			
@@ -1579,15 +1596,15 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
-							<div class="form-group">
-								<label class="col-sm-3 control-label returns-type"><span class="param-type">ACollector</span> | <span class="param-type">OCollector</span></label>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">ACollector</span> | <span class="param-type">OCollector</span></label>
 								<div class="col-sm-9">
-									<div class="form-control-static returns-description"></div>
+									<div class="form-control-plaintext returns-description"></div>
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1604,10 +1621,10 @@
 			
 			
 							<!-- source -->
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Source</label>
+							<div class="row mb-2">
+								<label class="col-sm-3 col-form-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-363">line 363</a></p>
+									<p class="form-control-plaintext"><a href="documents_collector.js.html">documents/collector.js</a>, <a href="documents_collector.js.html#line-363">line 363</a></p>
 								</div>
 							</div>
 			
@@ -1622,16 +1639,16 @@
 					</section>
 			</div>
 				<div class="col-md-3 side-content">
-					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+					<nav class="toc d-none d-md-block d-print-none"></nav>
 				</div>
 		</div>
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on 1st May 2018 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/clipboard.min.js"></script>
 	<script src="js/prism.min.js"></script>
 	<script src="js/template.min.js"></script>
@@ -1640,18 +1657,19 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h4 class="modal-title">Search results</h4>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
 					</div>
 					<div class="modal-footer" id="lunr-search-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 					</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div>
-		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<!-- end:lunr-search-modal.hbs -->
+		<script src="js/lunr.min.js"></script>
 	
 </body>
 </html>
