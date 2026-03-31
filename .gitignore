@@ -10,3 +10,5 @@ node_modules/
 #ignore local test folder
 .test/
 .test2/
+.playwright-mcp/
+.claude/
