@@ -83,7 +83,7 @@
 		while (!parent){
 			tag = 'h' + (tag.substr(1) - 1);
 			parent = this._last[tag];
-			if ($.inArray(tag, ['h1','h2','h3','h4']) === -1){
+			if (['h1','h2','h3','h4'].indexOf(tag) === -1){
 				parent = null;
 				break;
 			}
@@ -273,7 +273,7 @@
 			}
 			if (topMost != null){
 				$toc.find('.active').removeClass('active');
-				topMost.$li.parents('li').addBack().addClass('active')
+				topMost.$li.parents('li').add(topMost.$li).addClass('active')
 			}
 		}).triggerHandler('scroll.toc');
 	};

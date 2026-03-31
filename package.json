@@ -1,13 +1,19 @@
 {
   "name": "kung-foodoc",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "A Bootstrap 5 and Handlebars based JSDoc 4 template.",
   "main": "./template/publish.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "grunt template"
+    "build": "grunt template",
+    "examples": "grunt all",
+    "examples:default": "grunt default",
+    "examples:inline": "grunt inline",
+    "examples:logo-color": "grunt logo-color",
+    "examples:collapse": "grunt collapse",
+    "examples:namespaced": "grunt namespaced"
   },
   "repository": {
     "type": "git",
@@ -36,13 +42,13 @@
     "eslint": "9.39.4",
     "eslint-plugin-import-x": "4.16.2",
     "grunt-contrib-handlebars": "3.0.0",
-    "jquery": "3.7.1",
+    "jquery": "4.0.0",
     "neostandard": "0.13.0",
     "prismjs": "1.30.0"
   },
   "dependencies": {
     "cheerio": "1.2.0",
-    "glob": "11.1.0",
+    "glob": "13.0.6",
     "grunt": "1.6.1",
     "grunt-contrib-clean": "2.0.1",
     "grunt-contrib-copy": "1.0.0",
