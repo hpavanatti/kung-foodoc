@@ -1,7 +1,8 @@
 <!-- start:navbar.hbs -->
 <header class="navbar navbar-expand-md{{#if options.inverseNav}} navbar-dark bg-dark{{else}} navbar-light bg-light{{/if}} fixed-top">
 	<div class="container">
-		<a class="navbar-brand{{#if options.systemLogo}} branding-logo{{/if}}" href="{{navbar.index.link}}"{{#if options.systemLogo}} style="background-image: url({{options.systemLogo}});"{{/if}}>
+		<a class="navbar-brand d-flex align-items-center" href="{{navbar.index.link}}">
+			{{#if options.systemLogo}}<img src="{{options.systemLogo}}" alt="" class="branding-logo me-2">{{/if}}
 			{{navbar.index.title}}
 		</a>
 		<!-- displayed on small devices -->

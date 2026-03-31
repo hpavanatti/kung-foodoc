@@ -23,10 +23,10 @@ As this started off as a DocStrap modification I've used it's `fixtures` code to
 
 **NOTE:** The `fixtures` code doesn't make use of the `@summary` tag when describing it's members so it may look a little sparse.
 
-- [The default template options](https://hpavanatti.github.io/kung-foodoc/examples/default)
-- [The template with the `inlineNav` option set to `true`](https://hpavanatti.github.io/kung-foodoc/examples/inline)
-- [The template using the `systemLogo` and `systemColor` options](https://hpavanatti.github.io/kung-foodoc/examples/logo-color)
-- [The template with the `collapseSymbols` option set to `false`](https://hpavanatti.github.io/kung-foodoc/examples/collapse)
+- [The default template options](../default/index.html)
+- [The template with the `inlineNav` option set to `true`](../inline/index.html)
+- [The template using the `systemLogo` and `systemColor` options](../logo-color/index.html)
+- [The template with the `collapseSymbols` option set to `false`](../collapse/index.html)
 
 ## I want it! How do I get it?
 
