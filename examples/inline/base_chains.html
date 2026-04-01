@@ -6,7 +6,7 @@
 		<title>base/chains</title>
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -39,7 +39,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
 							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
-								<i class="bi bi-search"></i>
+								<i class="ph ph-magnifying-glass"></i>
 							</button>
 						</div>
 					</form>
@@ -64,13 +64,13 @@
 								<li class="breadcrumb-item active">base/chains</li>
 							</ol>
 							<div class="access-filter mb-0">
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-public" type="checkbox" value="" checked>
-										<label class="form-check-label">Public</label>
+										<label class="form-check-label"><i class="ph ph-eye"></i> Public</label>
 									</div>
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-private" type="checkbox" value="" checked>
-										<label class="form-check-label">Private</label>
+										<label class="form-check-label"><i class="ph ph-lock"></i> Private</label>
 									</div>
 							</div>
 					</div>
@@ -81,8 +81,8 @@
 </dt>
 <dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>Chains define the primary composition elements (functions) that determine the order of execution.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description classdesc"><p>Chains define the primary composition elements (functions) that determine the order of execution.</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -114,7 +114,7 @@
 </dd>
 							</dl>
 							<article class="secondary">
-									<h3>Members</h3>
+									<h3><i class="ph ph-hash"></i> Members</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public collapsible-symbol">
@@ -122,7 +122,7 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The <code>close</code> method asks an object to shut itself down in a way that will allow it to be reopened, unlike the<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>The <code>close</code> method asks an object to shut itself down in a way that will allow it to be reopened, unlike the<br>
 			<a href="base_chains.html#end">end method</a> which will call the destroy method which should make the object unusable, but also<br>
 			devoid of all resources whereas <code>close</code> may still keep some resources open.</p>
 			<table>
@@ -142,7 +142,7 @@
 			</tbody>
 			</table>
 			<p>This uses the <code>before</code> chain which means the last one defined in the first one destroyed</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -185,16 +185,16 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The <code>end</code> method will call the destroy method which should make the object unusable and<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>The <code>end</code> method will call the destroy method which should make the object unusable and<br>
 			devoid of all resources, unlike the<br>
 			<a href="base_chains.html#close">close method</a> asks an object to shut itself down in a way that will allow it to be reopened.</p>
 			<p>This uses the <code>before</code> chain which means the last one defined in the first one destroyed</p></div>
-			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Add <em>this</em> to your application.properties.</p></div>
+			</div>			<div class="callout callout-example"><h5><i class="ph ph-code"></i> Examples</h5>		<div class="example-caption"><p>Add <em>this</em> to your application.properties.</p></div>
 					<div class="example-code">
 						<pre class="prettyprint source language-bash"><code class="language-bash">
 			foo&#x3D;bar</code></pre>
 					</div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -230,12 +230,12 @@
 		</dt>
 <dd class="symbol-details member private  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Destroy is called by the end method and it is here that you should clean up after yourself. The difference between<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Destroy is called by the end method and it is here that you should clean up after yourself. The difference between<br>
 			<code>destroy</code> and <a href="base_chains.html#end">end</a> is the <code>end</code> is the verb that you raise on an object to ask it to go away<br>
 			and <code>destroy</code> is where you actually do the work to clean up. Think of this as the counterpart of <code>constructor</code> yet<br>
 			not called automatically.</p>
 			<p>This uses the <code>before</code> chain which means the last one defined is the first one destroyed</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -271,10 +271,10 @@
 		</dt>
 <dd class="symbol-details member public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If you are using the open/close paradigm for an object that can kind of go dormant on <a href="base_chains.html#close">base/chains#close</a> and can be &quot;reopened&quot;<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>If you are using the open/close paradigm for an object that can kind of go dormant on <a href="base_chains.html#close">base/chains#close</a> and can be &quot;reopened&quot;<br>
 			again later, here is where the &quot;open&quot; code will go.</p>
 			<p>This used the <code>after</code> chain which means that the first one defined is the first one destroyed.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -322,7 +322,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 1st Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
@@ -334,7 +334,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Search results</h4>
+						<h4 class="modal-title"><i class="ph ph-magnifying-glass"></i> Search results</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">

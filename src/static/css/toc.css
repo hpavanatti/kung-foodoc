@@ -26,18 +26,18 @@
 .toc .nav > li > a:hover,
 .toc .nav > li > a:focus {
 	padding-left: 35px;
-	color: #337ab7;
+	color: var(--fd-primary);
 	text-decoration: none;
 	background-color: transparent;
-	border-left: 1px solid #337ab7;
+	border-left: 1px solid var(--fd-primary);
 }
 .toc .nav > li.active > a,
 .toc .nav > li.active > a:hover,
 .toc .nav > li.active > a:focus {
 	padding-left: 34px;
-	color: #337ab7;
+	color: var(--fd-primary);
 	background-color: transparent;
-	border-left: 2px solid #337ab7;
+	border-left: 2px solid var(--fd-primary);
 }
 
 .toc .nav .nav {
@@ -90,7 +90,7 @@
 	color: #767676;
 }
 .toc .nav > li > a > .ancestors > span {
-	color: #337ab7;
+	color: var(--fd-primary);
 }
 .toc .nav > li > a .signature-attribs {
 	font-weight: normal;
@@ -102,7 +102,7 @@
 .toc .nav > li.event > a .name,
 .toc .nav > li > a .name-string,
 .toc .nav > li > a .signature-param {
-	color: #c7254e;
+	color: var(--fd-code);
 }
 /* Back to top (hidden on mobile) */
 .back-to-top {
@@ -116,7 +116,7 @@
 	cursor: pointer;
 }
 .back-to-top:hover {
-	color: #337ab7;
+	color: var(--fd-primary);
 	text-decoration: none;
 }
 

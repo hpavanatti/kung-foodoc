@@ -76,8 +76,20 @@ handlebars.registerHelper('param-attribs', function (param) {
 handlebars.registerHelper('callout', function (title, classes, options) {
   title = typeof title === 'string' ? title : ''
   classes = typeof classes === 'string' ? classes : 'callout-default'
+  var iconMap = {
+    'Description': 'ph-text-align-left',
+    'Parameters': 'ph-sliders',
+    'Returns': 'ph-arrow-bend-up-right',
+    'Throws': 'ph-warning',
+    'Fires': 'ph-lightning',
+    'Requires': 'ph-link',
+    'Examples': 'ph-code',
+    'Details': 'ph-info',
+    'Properties': 'ph-list-dashes'
+  }
+  var icon = iconMap[title] ? '<i class="ph ' + iconMap[title] + '"></i> ' : ''
   let result = '<div class="callout ' + classes + '">'
-  result += '<h5>' + title + '</h5>'
+  result += '<h5>' + icon + title + '</h5>'
   result += options.fn(this)
   return result + '</div>'
 })

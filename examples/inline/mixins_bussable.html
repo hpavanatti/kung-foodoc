@@ -6,7 +6,7 @@
 		<title>mixins/bussable</title>
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -39,7 +39,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
 							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
-								<i class="bi bi-search"></i>
+								<i class="ph ph-magnifying-glass"></i>
 							</button>
 						</div>
 					</form>
@@ -64,13 +64,13 @@
 								<li class="breadcrumb-item active">mixins/bussable</li>
 							</ol>
 							<div class="access-filter mb-0">
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-public" type="checkbox" value="" checked>
-										<label class="form-check-label">Public</label>
+										<label class="form-check-label"><i class="ph ph-eye"></i> Public</label>
 									</div>
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-private" type="checkbox" value="" checked>
-										<label class="form-check-label">Private</label>
+										<label class="form-check-label"><i class="ph ph-lock"></i> Private</label>
 									</div>
 							</div>
 					</div>
@@ -81,8 +81,8 @@
 </dt>
 <dd class="symbol-details mixin  collapsible-symbol expanded" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>Provides easy access to the system bus and provides some helper methods for doing so</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description classdesc"><p>Provides easy access to the system bus and provides some helper methods for doing so</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -114,7 +114,7 @@
 </dd>
 							</dl>
 							<article class="secondary">
-									<h3>Members</h3>
+									<h3><i class="ph ph-hash"></i> Members</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member private collapsible-symbol">
@@ -122,8 +122,8 @@
 		</dt>
 <dd class="symbol-details member private  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The list of subscriptions maintained by the mixin</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>The list of subscriptions maintained by the mixin</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 							<!-- type -->
 							<div class="row mb-2">
@@ -161,7 +161,7 @@
 			</div>	</div>
 </dd>
 									</dl>
-									<h3>Methods</h3>
+									<h3><i class="ph ph-function"></i> Methods</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
@@ -169,9 +169,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Subscribe to an event</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Subscribe to an event</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -209,7 +209,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -217,7 +217,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -253,9 +253,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Subscribe to an event once</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Subscribe to an event once</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -293,7 +293,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -301,7 +301,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -337,9 +337,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Publish an event on the system bus</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Publish an event on the system bus</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -403,7 +403,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -439,9 +439,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get a subscription definition</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Get a subscription definition</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -466,7 +466,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -474,7 +474,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -510,8 +510,8 @@
 		</dt>
 <dd class="symbol-details function private  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Gets rid of all subscriptions for this object.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Gets rid of all subscriptions for this object.</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -552,7 +552,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 1st Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
@@ -564,7 +564,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Search results</h4>
+						<h4 class="modal-title"><i class="ph ph-magnifying-glass"></i> Search results</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">

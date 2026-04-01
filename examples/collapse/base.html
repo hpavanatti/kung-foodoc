@@ -6,7 +6,7 @@
 		<title>base</title>
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
@@ -81,7 +81,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
 							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
-								<i class="bi bi-search"></i>
+								<i class="ph ph-magnifying-glass"></i>
 							</button>
 						</div>
 					</form>
@@ -106,13 +106,13 @@
 								<li class="breadcrumb-item active">base</li>
 							</ol>
 							<div class="access-filter mb-0">
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-inherited" type="checkbox" value="" checked>
-										<label class="form-check-label">Inherited</label>
+										<label class="form-check-label"><i class="ph ph-git-fork"></i> Inherited</label>
 									</div>
-									<div class="form-check form-check-inline">
+									<div class="form-check form-check-inline checked">
 										<input class="form-check-input toggle-public" type="checkbox" value="" checked>
-										<label class="form-check-label">Public</label>
+										<label class="form-check-label"><i class="ph ph-eye"></i> Public</label>
 									</div>
 							</div>
 					</div>
@@ -123,11 +123,11 @@
 </dt>
 <dd class="symbol-details class" style="max-height: 9999px;">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description classdesc"><p>The base of all classes in the system, this is one of the few pure &quot;classes&quot; in core the of the system. It is a<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description classdesc"><p>The base of all classes in the system, this is one of the few pure &quot;classes&quot; in core the of the system. It is a<br>
 			pretty clean little class whose primary purpose is to surface the composition chains and a basis for storing<br>
 			options on mixin and subclass instances. Options are handled at the instance rather than the prototype level<br>
 			so that multiple instances don't compete for default values.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -166,7 +166,7 @@
 </dd>
 							</dl>
 							<article class="secondary">
-									<h3>Members</h3>
+									<h3><i class="ph ph-hash"></i> Members</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title member public inherited">
@@ -174,7 +174,7 @@
 		</dt>
 <dd class="symbol-details member public inherited">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>The <code>close</code> method asks an object to shut itself down in a way that will allow it to be reopened, unlike the<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>The <code>close</code> method asks an object to shut itself down in a way that will allow it to be reopened, unlike the<br>
 			<a href="base_chains.html#end">end method</a> which will call the destroy method which should make the object unusable, but also<br>
 			devoid of all resources whereas <code>close</code> may still keep some resources open.</p>
 			<table>
@@ -194,7 +194,7 @@
 			</tbody>
 			</table>
 			<p>This uses the <code>before</code> chain which means the last one defined in the first one destroyed</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -244,10 +244,10 @@
 		</dt>
 <dd class="symbol-details member public inherited">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>If you are using the open/close paradigm for an object that can kind of go dormant on <a href="base_chains.html#close">base/chains#close</a> and can be &quot;reopened&quot;<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>If you are using the open/close paradigm for an object that can kind of go dormant on <a href="base_chains.html#close">base/chains#close</a> and can be &quot;reopened&quot;<br>
 			again later, here is where the &quot;open&quot; code will go.</p>
 			<p>This used the <code>after</code> chain which means that the first one defined is the first one destroyed.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -292,7 +292,7 @@
 			</div>	</div>
 </dd>
 									</dl>
-									<h3>Methods</h3>
+									<h3><i class="ph ph-function"></i> Methods</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public">
@@ -300,9 +300,9 @@
 		</dt>
 <dd class="symbol-details function public">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Add an option to a class. If any members of the hash already exist in <code>this.options</code>, they will be overwritten.</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Add an option to a class. If any members of the hash already exist in <code>this.options</code>, they will be overwritten.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -322,7 +322,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -365,10 +365,10 @@
 		</dt>
 <dd class="symbol-details function public">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Add a default option to a class. The default options are only set if there is not already a<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Add a default option to a class. The default options are only set if there is not already a<br>
 			value for the option.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -388,7 +388,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -431,10 +431,10 @@
 		</dt>
 <dd class="symbol-details function public">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Call this to close your object and dispose of all maintained resources. You can define this method on your<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Call this to close your object and dispose of all maintained resources. You can define this method on your<br>
 			own classes without having to call the superclass instance, however it is reccomended that you put<br>
 			all disposal code in <code>destroy()</code>. You must be disciplined about calling this on your instances.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -487,10 +487,10 @@
 		</dt>
 <dd class="symbol-details function public">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Called when it is time to get rid of all of your instance level references and objects and events. You can<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Called when it is time to get rid of all of your instance level references and objects and events. You can<br>
 			define this method on your own classes without having to call the superclass instance. It is called by<br>
 			<code>instance.end()</code> automatically</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -548,7 +548,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 1st Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
@@ -560,7 +560,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Search results</h4>
+						<h4 class="modal-title"><i class="ph ph-magnifying-glass"></i> Search results</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">

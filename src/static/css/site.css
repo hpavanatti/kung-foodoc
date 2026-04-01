@@ -1,3 +1,10 @@
+:root {
+	--fd-primary: #0d6efd;
+	--fd-success: #198754;
+	--fd-danger: #dc3545;
+	--fd-warning: #ffc107;
+	--fd-code: #d63384;
+}
 html {
 	margin-top: 50px;
 	background-color: #f9f9f9;

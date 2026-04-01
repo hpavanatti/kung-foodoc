@@ -43,28 +43,28 @@
 	color: #999;
 }
 .callout-primary {
-	border-left-color: #337ab7;
+	border-left-color: var(--fd-primary);
 }
 .callout-primary h5 {
-	color: #337ab7;
+	color: var(--fd-primary);
 }
 .callout-success {
-	border-left-color: #5cb85c;
+	border-left-color: var(--fd-success);
 }
 .callout-success h5 {
-	color: #5cb85c;
+	color: var(--fd-success);
 }
 .callout-danger {
-	border-left-color: #d9534f;
+	border-left-color: var(--fd-danger);
 }
 .callout-danger h5 {
-	color: #d9534f;
+	color: var(--fd-danger);
 }
 .callout-warning {
-	border-left-color: #f0ad4e;
+	border-left-color: var(--fd-warning);
 }
 .callout-warning h5 {
-	color: #f0ad4e;
+	color: var(--fd-warning);
 }
 .callout-info {
 	border-left-color: #87b9f1;

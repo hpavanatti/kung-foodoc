@@ -3,15 +3,28 @@
 	color: #767676;
 }
 .access-filter .form-check-inline {
-	color: #767676;
 	margin-right: 8px;
 	cursor: pointer;
+	transition: color 0.2s, opacity 0.2s;
 }
 .access-filter .form-check-input {
 	margin-top: 0.2em;
+	cursor: pointer;
 }
-.access-filter .form-check-inline:hover,
-.access-filter .form-check-inline:focus,
-.access-filter .form-check-inline.checked {
-	color: #337ab7;
+.access-filter .form-check-label {
+	cursor: pointer;
+}
+.access-filter .form-check-inline.checked,
+.access-filter .form-check-inline:hover {
+	color: var(--fd-primary);
+}
+.access-filter .form-check-inline:not(.checked) {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+.secondary .empty-state {
+	color: #999;
+	font-style: italic;
+	font-size: 14px;
+	padding: 10px 0;
 }

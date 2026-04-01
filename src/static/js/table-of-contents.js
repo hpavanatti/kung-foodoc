@@ -115,14 +115,14 @@
 	};
 
 	/**
-	 * The element created contains only the `glyphicon-link` icon (<i class="bi bi-link-45deg"></i>) allowing users to click on it to get a url to specific documentation.
+	 * The element created contains only the link icon (<i class="ph ph-link"></i>) allowing users to click on it to get a url to specific documentation.
 	 * @summary Creates a new jQuery anchor element with the given id.
 	 * @param {string} id - The id the anchor links to.
 	 * @returns {jQuery}
 	 */
 	TOC.prototype.$anchorLink = function(id){
 		return $('<a/>', {'class': 'anchor-link', href: '#' + id}).append(
-			$('<i/>', {'class': 'bi bi-link-45deg'})
+			$('<i/>', {'class': 'ph ph-link'})
 		);
 	};
 

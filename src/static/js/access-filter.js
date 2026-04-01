@@ -23,6 +23,7 @@
 			self.setProtected();
 			self.$togglePrivate = $(".access-filter .toggle-private").on('change', {self: self}, self.onPrivateChanged);
 			self.setPrivate();
+			self.updateEmptyStates();
 		},
 		setInherited: function(){
 			var self = this;
@@ -82,17 +83,37 @@
 				self.$togglePrivate.closest(".form-check-inline").toggleClass("checked", self.private);
 			}
 		},
+		updateEmptyStates: function(){
+			$('.secondary > h3').each(function(){
+				var $heading = $(this);
+				var $dl = $heading.nextAll('dl.symbol').first();
+				if (!$dl.length) return;
+				var $visible = $dl.find('dt.symbol-title').filter(':visible');
+				var $empty = $dl.prev('.empty-state');
+				if ($visible.length === 0){
+					if (!$empty.length){
+						$dl.before('<p class="empty-state">No visible items for current filter.</p>');
+					}
+				} else {
+					$empty.remove();
+				}
+			});
+		},
 		onInheritedChanged: function(e){
 			e.data.self.setInherited();
+			e.data.self.updateEmptyStates();
 		},
 		onPublicChanged: function(e){
 			e.data.self.setPublic();
+			e.data.self.updateEmptyStates();
 		},
 		onProtectedChanged: function(e){
 			e.data.self.setProtected();
+			e.data.self.updateEmptyStates();
 		},
 		onPrivateChanged: function(e){
 			e.data.self.setPrivate();
+			e.data.self.updateEmptyStates();
 		}
 	});
 

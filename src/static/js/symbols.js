@@ -9,7 +9,7 @@
 				// create a jq object of the current element and figure out if it's expanded or collapsed
 				var $title = $(dt), expanded = $title.hasClass("expanded"),
 				// create the toggle with the correct icon
-					$toggle = $("<span/>", {"class": "float-end toggle-icon bi bi-chevron-" + (expanded ? "up" : "down")});
+					$toggle = $("<span/>", {"class": "float-end toggle-icon ph ph-caret-" + (expanded ? "up" : "down")});
 				// all collapsible symbols have only a single H# element displaying the name, add the toggle to that
 				$title.find("h1,h2,h3,h4,h5").first().append($toggle);
 			})
@@ -30,14 +30,14 @@
 
 				if (expand){
 					// toggle the icon, add the inner height to the current height and then transition to that value
-					$icon.removeClass('bi-chevron-down').addClass('bi-chevron-up');
+					$icon.removeClass('ph-caret-down').addClass('ph-caret-up');
 					height += $inner.outerHeight();
 					$title.add($details).addClass('expanded');
 					$details.addClass('transition').css('max-height', height);
 				} else {
 					// toggle the icon, set the max-height to the current height and then transition to 0, the max-height is set to 9999 in the below
 					// transitionend event to fix any sizing issues so it needs to be reset to the current value again before transitioning.
-					$icon.removeClass('bi-chevron-up').addClass('bi-chevron-down');
+					$icon.removeClass('ph-caret-up').addClass('ph-caret-down');
 					$title.add($details).removeClass('expanded');
 					$details.removeClass('transition').css('max-height', height);
 					setTimeout(function(){

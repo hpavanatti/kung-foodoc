@@ -7,36 +7,11 @@
 		<link rel="icon" type="image/png" href="favicon.png"/>
 		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
-		<link type="text/css" rel="stylesheet" href="css/bootstrap-icons.min.css">
+		<link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 			<style>
-				.page-header,
-				pre.code-toolbar > .toolbar:hover {
-					background-color: #5233b7;
-				}
-				.callout-primary,
-				.toc .nav > li > a:hover,
-				.toc .nav > li > a:focus,
-				.toc .nav > li.active > a,
-				.toc .nav > li.active > a:hover,
-				.toc .nav > li.active > a:focus,
-				pre.code-toolbar > .toolbar:hover {
-					border-left-color: #5233b7;
-				}
-				pre.code-toolbar > .toolbar:hover {
-					border-bottom-color: #5233b7;
-				}
-				.callout-primary h5,
-				.symbol-title.collapsible-symbol .toggle-icon,
-				.breadcrumb li a,
-				.toc .nav > li > a:hover,
-				.toc .nav > li > a:focus,
-				.toc .nav > li.active > a,
-				.toc .nav > li.active > a:hover,
-				.toc .nav > li.active > a:focus {
-					color: #5233b7;
-				}
+				:root { --fd-primary: #5233b7; }
 			</style>
 		<script type="text/javascript">
 			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooDoc","systemSummary":"A Bootstrap and Handlebars based template for JSDoc3.","systemLogo":"img/foobot-40x40.png","systemColor":"#5233b7","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":"favicon.png","stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
@@ -110,7 +85,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
 							<button class="btn btn-outline-secondary" type="button" id="lunr-search-submit">
-								<i class="bi bi-search"></i>
+								<i class="ph ph-magnifying-glass"></i>
 							</button>
 						</div>
 					</form>
@@ -140,8 +115,8 @@
 			<dt class="symbol-title "></dt>
 			<dd class="symbol-details ">
 				<div class="symbol-details-inner">
-					<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>An object and array collector</p></div>
-					</div>					<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+					<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>An object and array collector</p></div>
+					</div>					<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 					
 					
 					
@@ -173,7 +148,7 @@
 			</dd>
 		</dl>
 							<article class="secondary">
-									<h3>Classes</h3>
+									<h3><i class="ph ph-cube"></i> Classes</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title class public">
@@ -200,7 +175,7 @@
 	</div>
 </dd>
 									</dl>
-									<h3>Methods</h3>
+									<h3><i class="ph ph-function"></i> Methods</h3>
 									<dl class="symbol">
 											<hr/>
 											<dt class="symbol-title function public collapsible-symbol">
@@ -208,9 +183,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Adds an item to the collection</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Adds an item to the collection</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -237,7 +212,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -273,11 +248,11 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Iterate over each item in the collection, or a subset that matches a query. This supports two signatures:<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Iterate over each item in the collection, or a subset that matches a query. This supports two signatures:<br>
 			<code>.each(query, function)</code> and <code>.each(function)</code>. If you pass in a query, only the items that match the query<br>
 			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -315,7 +290,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -351,8 +326,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns the collection as an array. If it is already an array, it just returns that.</p></div>
-			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Returns the collection as an array. If it is already an array, it just returns that.</p></div>
+			</div>			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
@@ -360,7 +335,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -396,8 +371,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Supports conversion to a JSON string or for passing over the wire</p></div>
-			</div>			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Supports conversion to a JSON string or for passing over the wire</p></div>
+			</div>			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -411,7 +386,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -447,11 +422,11 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Maps the contents to an array by iterating over it and transforming it. You supply the iterator. Supports two signatures:<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Maps the contents to an array by iterating over it and transforming it. You supply the iterator. Supports two signatures:<br>
 			<code>.map(query, function)</code> and <code>.map(function)</code>. If you pass in a query, only the items that match the query<br>
 			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -489,7 +464,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -525,12 +500,12 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduces a collection to a value which is the accumulated result of running each element in the collection through the<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Reduces a collection to a value which is the accumulated result of running each element in the collection through the<br>
 			callback, where each successive callback execution consumes the return value of the previous execution. If accumulator<br>
 			is not passed, the first element of the collection will be used as the initial accumulator value.<br>
 			are iterated over.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -576,7 +551,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
@@ -584,7 +559,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -620,11 +595,11 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element<br>
 			of the collection through the given callback. The corresponding value of each key<br>
 			is the number of times the key was returned by the callback.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -662,7 +637,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -670,7 +645,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -706,11 +681,11 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element of the collection through the callback.<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Creates an object composed of keys returned from running each element of the collection through the callback.<br>
 			The corresponding value of each key is an array of elements passed to callback that returned the key.<br>
 			The callback is invoked with three arguments: (value, index|key, collection).</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -748,7 +723,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">object</span></label>
 								<div class="col-sm-9">
@@ -756,7 +731,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -792,10 +767,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Reduce the collection to a single value. Supports two signatures:<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Reduce the collection to a single value. Supports two signatures:<br>
 			<code>.pluck(query, function)</code> and <code>.pluck(function)</code></p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -826,7 +801,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
@@ -834,7 +809,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -870,9 +845,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Returns a sorted copy of the collection.</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Returns a sorted copy of the collection.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -910,7 +885,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">array</span></label>
 								<div class="col-sm-9">
@@ -918,7 +893,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -954,10 +929,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the maximum value of an array. If callback is passed,<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Retrieves the maximum value of an array. If callback is passed,<br>
 			it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -995,7 +970,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
@@ -1003,7 +978,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1039,10 +1014,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Retrieves the minimum value of an array. If callback is passed,<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Retrieves the minimum value of an array. If callback is passed,<br>
 			it will be executed for each value in the array to generate the criterion by which the value is ranked.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1080,7 +1055,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
@@ -1088,7 +1063,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1124,8 +1099,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Destructor called when the object is destroyed.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Destructor called when the object is destroyed.</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1161,9 +1136,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Get a record by key</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Get a record by key</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1183,7 +1158,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
@@ -1191,7 +1166,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1227,9 +1202,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Adds to the top of the collection</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Adds to the top of the collection</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1249,7 +1224,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1285,9 +1260,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Add to the bottom of the list</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Add to the bottom of the list</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1307,7 +1282,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1343,9 +1318,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Add an item to the top of the list. This is identical to <code>add</code>, but is provided for stack semantics</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Add an item to the top of the list. This is identical to <code>add</code>, but is provided for stack semantics</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1365,7 +1340,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1401,8 +1376,8 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Modifies the collection with all falsey values of array removed. The values false, null, 0, &quot;&quot;, undefined and NaN are all falsey.</p></div>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Modifies the collection with all falsey values of array removed. The values false, null, 0, &quot;&quot;, undefined and NaN are all falsey.</p></div>
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1438,10 +1413,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Creates an array of elements from the specified indexes, or keys, of the collection. Indexes may be specified as<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Creates an array of elements from the specified indexes, or keys, of the collection. Indexes may be specified as<br>
 			individual arguments or as arrays of indexes</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1461,7 +1436,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1497,10 +1472,10 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Flattens a nested array (the nesting can be to any depth). If isShallow is truthy, array will only be flattened a single level.<br>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Flattens a nested array (the nesting can be to any depth). If isShallow is truthy, array will only be flattened a single level.<br>
 			If callback is passed, each element of array is passed through a callback before flattening.</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1538,7 +1513,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">number</span></label>
 								<div class="col-sm-9">
@@ -1546,7 +1521,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1582,9 +1557,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Gets an items by its index</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Gets an items by its index</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1604,7 +1579,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">*</span></label>
 								<div class="col-sm-9">
@@ -1612,7 +1587,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1648,9 +1623,9 @@
 		</dt>
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
-			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Collect an object</p></div>
+			<div class="callout callout-primary"><h5><i class="ph ph-text-align-left"></i> Description</h5>		<div class="description"><p>Collect an object</p></div>
 			</div>			<div class="callout callout-info">
-				<h5>Parameters</h5>
+				<h5><i class="ph ph-sliders"></i> Parameters</h5>
 				<table class="params table table-striped">
 					<thead>
 					<tr>
@@ -1670,7 +1645,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-success"><h5>Returns</h5>		<form class="details-form returns">
+			<div class="callout callout-success"><h5><i class="ph ph-arrow-bend-up-right"></i> Returns</h5>		<form class="details-form returns">
 							<div class="row mb-2">
 								<label class="col-sm-3 col-form-label returns-type"><span class="param-type">ACollector</span> | <span class="param-type">OCollector</span></label>
 								<div class="col-sm-9">
@@ -1678,7 +1653,7 @@
 								</div>
 							</div>
 					</form>
-			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="details-form details">
+			</div>			<div class="callout callout-default"><h5><i class="ph ph-info"></i> Details</h5>		<form class="details-form details">
 			
 			
 			
@@ -1719,7 +1694,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 31st Mar 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.5</a> on 1st Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.bundle.min.js"></script>
@@ -1731,7 +1706,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h4 class="modal-title">Search results</h4>
+						<h4 class="modal-title"><i class="ph ph-magnifying-glass"></i> Search results</h4>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body" id="lunr-search-body">
