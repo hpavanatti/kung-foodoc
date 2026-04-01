@@ -1,13 +1,40 @@
+/**
+ * @module docletHelper
+ * @summary Computes display-ready fields for each JSDoc doclet.
+ *
+ * This module is called by `postProcessor.process()` during the post-processing
+ * phase. For every doclet in the database, it computes:
+ *
+ *  - **Titles** (page, symbol, list, primary) in both sanitized (plain text for
+ *    `<title>`) and HTML forms, including ancestor chains and signature markup.
+ *  - **Signatures** with optional/variadic parameter rendering and return types.
+ *  - **Parameters & Properties** sorted into nested trees (for dot-notation like
+ *    `options.foo.bar`) with column-presence flags (hasNames, hasAttributes, hasDefaults).
+ *  - **Examples** parsed for inner tags ({@caption}, {@lang}, {@run}).
+ *  - **Fires / Requires** expanded from longname arrays to {link, summary} objects.
+ *  - **Symbols** grouped by kind for the secondary section of each page.
+ *  - **Access filter** visibility (inherited, public, protected, private).
+ *  - **hasDetails** flag indicating whether the Details callout should render.
+ *
+ * All exported functions are pure transforms: they read the doclet and return
+ * computed values without side effects on the doclet itself.
+ */
 const template = require('./template')
 const helper = require('jsdoc/util/templateHelper')
 const markdown = require('jsdoc/util/markdown').getParser()
 
+/** Returns true if the doclet kind supports parameter signatures (functions, classes, function typedefs). */
 const supportsParams = function (doclet) {
   return doclet.kind === 'function' || doclet.kind === 'class' || (doclet.kind === 'typedef' && !!doclet.type && !!doclet.type.names && doclet.type.names.some(function (name) {
     return name.toLowerCase() === 'function'
   }))
 }
 
+/**
+ * Derives the display text for a doclet's link. Strips prefixes like `module:`
+ * and `event:` for cleaner navigation labels. Tutorials and readmes use their
+ * `title` or `name` property directly.
+ */
 const getLinkText = exports.getLinkText = function (doclet) {
   let text = doclet.longname
   if (['class', 'module', 'namespace', 'mixin', 'interface', 'event'].indexOf(doclet.kind) !== -1) {
@@ -26,6 +53,7 @@ const getLinkText = exports.getLinkText = function (doclet) {
   return text
 }
 
+/** Returns HTML-safe attribute badges (e.g. `<static>`, `<readonly>`) for the doclet. */
 exports.getAttribs = function (doclet) {
   if (supportsParams(doclet) || doclet.kind === 'member' || doclet.kind === 'constant') {
     const attribs = helper.getAttribs(doclet)
@@ -34,6 +62,12 @@ exports.getAttribs = function (doclet) {
   return ''
 }
 
+/**
+ * Builds the HTML signature string for a doclet.
+ * For functions/classes: `( param1 [, optionalParam ] ) -> {ReturnType}`
+ * For members/constants: ` :TypeName`
+ * Optional params are wrapped in brackets with correct nesting.
+ */
 exports.getSignature = function (doclet) {
   let signature = ''
   if (supportsParams(doclet)) {
@@ -70,6 +104,15 @@ exports.getSignature = function (doclet) {
   return signature
 }
 
+/**
+ * Parses the `@example` tags into structured objects with extracted inner tags:
+ *  - `{@caption <markdown>}` - rendered description above the code block
+ *  - `{@lang <string>}` - Prism.js language for syntax highlighting (default: javascript)
+ *  - `{@run <boolean>}` - enables the "Run" button for executable examples
+ *
+ * Also supports the legacy `<caption>` HTML syntax.
+ * @returns {Array<{caption: string, code: string, lang: string, run: boolean}>}
+ */
 exports.getExamples = function (doclet) {
   if (!doclet.examples || !doclet.examples.length) return []
   return doclet.examples.map(function (example) {
@@ -114,6 +157,11 @@ exports.getExamples = function (doclet) {
   })
 }
 
+/**
+ * Resolves an array of longnames into {link, summary} objects by looking up
+ * each longname in the database. Shortens link text for same-parent members.
+ * Any longnames not found in the DB are still included with empty summaries.
+ */
 const expandLongnames = function (longnames, parent) {
   const results = []
   const generated = template.kinds.pages.indexOf(parent.kind) !== -1
@@ -154,6 +202,15 @@ exports.getSummary = function (doclet) {
   return markdown(doclet.summary)
 }
 
+/**
+ * Transforms a flat JSDoc params/properties array into a nested tree based on
+ * dot-notation names. For example, `options`, `options.foo`, `options.foo.bar`
+ * becomes a tree where `options` has a child `foo` which has a child `bar`.
+ *
+ * @param {Object} doclet - The doclet containing the params/properties.
+ * @param {string} type - Either `'params'` or `'properties'`.
+ * @returns {Array} The top-level items with nested children.
+ */
 exports.getParamsOrProps = function (doclet, type) {
   if (!doclet[type] || !doclet[type].length) return []
   const sorted = {}
@@ -179,6 +236,15 @@ exports.getParamsOrProps = function (doclet, type) {
   })
 }
 
+/**
+ * Scans a params/properties array and sets boolean flags on the parent doclet
+ * indicating which table columns are needed:
+ *  - `{type}HasNames` - at least one item has a name
+ *  - `{type}HasAttributes` - at least one item is optional, nullable, or variable
+ *  - `{type}HasDefaults` - at least one item has a default value
+ *
+ * Recurses into nested params/properties (from dot-notation expansion).
+ */
 const checkParamsOrProps = exports.checkParamsOrProps = function (parent, type) {
   if (!parent || !parent[type] || !parent[type].length) return
   /* determine if we need extra columns, "attributes" and "default" */
@@ -205,6 +271,11 @@ const checkParamsOrProps = exports.checkParamsOrProps = function (parent, type) 
   })
 }
 
+/**
+ * Builds the page-level title HTML (used in `<title>` and the page header).
+ * Includes ancestors, name, signature, and variation. When `sanitized` is true,
+ * strips all HTML tags for use in `<title>` elements.
+ */
 exports.getPageTitle = function (doclet, sanitized) {
   const parts = []
   if (doclet.attribs) {
@@ -232,6 +303,10 @@ exports.getPageTitle = function (doclet, sanitized) {
   return sanitized ? template.sanitize(result) : result
 }
 
+/**
+ * Builds the title HTML for list pages (navbar dropdowns).
+ * Similar to getPageTitle but wraps in a link to the doclet's page when a URL exists.
+ */
 exports.getListTitle = function (doclet, sanitized) {
   const parts = []; let linkClose = false; const url = doclet.kind === 'tutorial' ? helper.tutorialToUrl(doclet.longname) : helper.longnameToUrl[doclet.longname]
   // only generate links to kinds that have a page generated, others show content inline so there's no need
@@ -270,6 +345,10 @@ exports.getListTitle = function (doclet, sanitized) {
   return sanitized ? template.sanitize(result) : result
 }
 
+/**
+ * Builds the title HTML for inline symbols (methods, members, events).
+ * Links to the symbol's own page for page-level kinds; renders inline for others.
+ */
 exports.getSymbolTitle = function (doclet, sanitized) {
   const parts = []; let linkClose = false; const url = doclet.kind === 'tutorial' ? helper.tutorialToUrl(doclet.longname) : helper.longnameToUrl[doclet.longname]
   // only generate links to kinds that have a page generated, others show content inline so there's no need
@@ -305,6 +384,10 @@ exports.getSymbolTitle = function (doclet, sanitized) {
   return sanitized ? template.sanitize(result) : result
 }
 
+/**
+ * Builds the title HTML for the primary symbol (the main doclet on a page).
+ * Similar to getSymbolTitle but never wraps in a link since we're already on that page.
+ */
 exports.getPrimaryTitle = function (doclet, sanitized) {
   const parts = []
   if (doclet.kind === 'class') {
@@ -332,6 +415,11 @@ exports.getPrimaryTitle = function (doclet, sanitized) {
   return sanitized ? template.sanitize(result) : result
 }
 
+/**
+ * Groups all child symbols of a doclet by kind (member, function, event, etc.).
+ * For global doclets, queries symbols with undefined memberof instead.
+ * The returned object is used by `site/_layout.hbs` via the `symbol-kinds` helper.
+ */
 exports.getSymbols = function (doclet) {
   const symbols = {}
   if (doclet.longname === helper.globalName) {
@@ -346,6 +434,12 @@ exports.getSymbols = function (doclet) {
   return symbols
 }
 
+/**
+ * Determines whether the access filter toolbar should appear on a doclet page.
+ * The filter is shown only when the doclet has symbols in at least 2 different
+ * access levels (e.g. both public and private, or inherited and protected).
+ * Also populates `doclet.has` with boolean flags for each access level.
+ */
 exports.getShowAccessFilter = function (doclet) {
   let result = typeof doclet.showAccessFilter !== 'boolean' ? template.options.showAccessFilter : doclet.showAccessFilter
   if (result) {
@@ -367,6 +461,11 @@ exports.isInherited = function (doclet) {
   return !!doclet.inherited
 }
 
+/**
+ * Returns true if the doclet has any metadata that warrants showing the
+ * Details callout (version, since, inherits, mixes, deprecated, author,
+ * copyright, license, source, tutorials, see, todo, etc.).
+ */
 exports.hasDetails = function (doclet) {
   return !!(doclet.version ||
     doclet.since ||

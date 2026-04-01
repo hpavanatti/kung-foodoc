@@ -1,4 +1,10 @@
-<!-- start:readme.hbs -->
+{{!--
+  readme.hbs - Landing page template (index.html).
+
+  Overrides the entire "content" block to render the README.md markdown
+  without the primary/secondary symbol structure. The contents are
+  pre-parsed by JSDoc's markdown processor.
+--}}
 {{#extend "site/layout"}}
 
 	{{#content "content"}}
@@ -8,4 +14,3 @@
 	{{/content}}
 
 {{/extend}}
-<!-- end:readme.hbs -->

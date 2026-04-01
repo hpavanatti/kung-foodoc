@@ -1,3 +1,10 @@
+{{!--
+  global.hbs - Page for the Globals doclet.
+
+  Overrides "primary" to render nothing (no primary symbol), letting the
+  secondary block from site/layout display all global-scope members,
+  functions, constants, and typedefs via the symbol-kinds helper.
+--}}
 {{#extend "site/layout"}}
 
 	{{#content "primary"}}

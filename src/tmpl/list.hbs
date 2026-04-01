@@ -1,3 +1,10 @@
+{{!--
+  list.hbs - Index page for a kind (Classes, Modules, Tutorials, etc.).
+
+  Overrides "primary" to show just the title, and "secondary" to list
+  all members of that kind using the symbol helper with list=true mode.
+  Created by postProcessor.registerLists() for each navMember kind.
+--}}
 {{#extend "site/layout"}}
 	{{#content "primary"}}
 		<h2>{{{doclet.primaryTitleHTML}}}</h2>

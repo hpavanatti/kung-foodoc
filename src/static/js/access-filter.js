@@ -1,88 +1,83 @@
+/**
+ * @summary Access filter toolbar for toggling symbol visibility by access level.
+ *
+ * This component powers the checkbox toolbar rendered by site/_layout.hbs that
+ * lets users show/hide symbols based on their access level (inherited, public,
+ * protected, private). Each checkbox toggles the corresponding CSS class on
+ * symbol-title/symbol-details/li elements.
+ *
+ * The inherited level has special handling: when inherited is ON but a visibility
+ * level (e.g. public) is OFF, inherited-public symbols are hidden. Conversely,
+ * when inherited is OFF, the visibility toggles skip inherited members entirely.
+ *
+ * After each toggle, updateEmptyStates() checks each symbol section and shows
+ * a "No visible items" message when all items in a section are hidden.
+ *
+ * Enabled only when window.DOCLET_AFILTER_ENABLED is true (set by the template
+ * based on doclet.showAccessFilter computed by docletHelper.getShowAccessFilter).
+ *
+ * @see module:docletHelper.getShowAccessFilter - determines when the filter appears
+ */
 (function(options, enabled, $){
+
+	/** The four access levels managed by the filter, in DOM order. */
+	var ACCESS_LEVELS = ['inherited', 'public', 'protected', 'private'];
+
+	function capitalize(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	}
 
 	function AccessFilter(){
 		if (!(this instanceof AccessFilter)) return new AccessFilter();
-		this.$toggleInherited = $();
-		this.$togglePublic = $();
-		this.$toggleProtected = $();
-		this.$togglePrivate = $();
-		this.inherited = false;
-		this.public = false;
-		this.protected = false;
-		this.private = false;
+		var self = this;
+		ACCESS_LEVELS.forEach(function(level) {
+			self['$toggle' + capitalize(level)] = $();
+			self[level] = false;
+		});
 	}
 
 	$.extend(AccessFilter.prototype, {
+		/** Binds change events to all toggle checkboxes and applies initial state. */
 		init: function(){
 			var self = this;
-			self.$toggleInherited = $(".access-filter .toggle-inherited").on('change', {self: self}, self.onInheritedChanged);
-			self.setInherited();
-			self.$togglePublic = $(".access-filter .toggle-public").on('change', {self: self}, self.onPublicChanged);
-			self.setPublic();
-			self.$toggleProtected = $(".access-filter .toggle-protected").on('change', {self: self}, self.onProtectedChanged);
-			self.setProtected();
-			self.$togglePrivate = $(".access-filter .toggle-private").on('change', {self: self}, self.onPrivateChanged);
-			self.setPrivate();
+			ACCESS_LEVELS.forEach(function(level) {
+				var prop = '$toggle' + capitalize(level);
+				self[prop] = $(".access-filter .toggle-" + level).on('change', function() {
+					self._setAccess(level);
+					self.updateEmptyStates();
+				});
+				self._setAccess(level);
+			});
 			self.updateEmptyStates();
 		},
-		setInherited: function(){
+		/**
+		 * Toggles visibility for all symbols of the given access level.
+		 * Handles the inherited/visibility cross-filtering logic and updates
+		 * the checkbox's visual "checked" state via the .checked CSS class.
+		 */
+		_setAccess: function(level){
 			var self = this;
-			if (self.$toggleInherited.length > 0){
-				self.inherited = self.$toggleInherited.prop("checked");
-				var $elem = $(".symbol-title.inherited,.symbol-details.inherited,li.inherited");
-				if (self.inherited && !self.public){
-					$elem = $elem.not('.public');
+			var $toggle = self['$toggle' + capitalize(level)];
+			if ($toggle.length === 0) return;
+
+			self[level] = $toggle.prop("checked");
+			var $elem = $(".symbol-title." + level + ",.symbol-details." + level + ",li." + level);
+
+			if (level === 'inherited') {
+				if (self.inherited) {
+					if (!self.public) $elem = $elem.not('.public');
+					if (!self.protected) $elem = $elem.not('.protected');
+					if (!self.private) $elem = $elem.not('.private');
 				}
-				if (self.inherited && !self.protected){
-					$elem = $elem.not('.protected');
-				}
-				if (self.inherited && !self.private){
-					$elem = $elem.not('.private');
-				}
-				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
-				$elem.toggle(self.inherited);
-				self.$toggleInherited.closest(".form-check-inline").toggleClass("checked", self.inherited);
+			} else {
+				if (!self.inherited) $elem = $elem.not('.inherited');
 			}
+
+			$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
+			$elem.toggle(self[level]);
+			$toggle.closest(".form-check-inline").toggleClass("checked", self[level]);
 		},
-		setPublic: function(){
-			var self = this;
-			if (self.$togglePublic.length > 0){
-				self.public = self.$togglePublic.prop("checked");
-				var $elem = $(".symbol-title.public,.symbol-details.public,li.public");
-				if (!self.inherited){
-					$elem = $elem.not('.inherited');
-				}
-				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
-				$elem.toggle(self.public);
-				self.$togglePublic.closest(".form-check-inline").toggleClass("checked", self.public);
-			}
-		},
-		setProtected: function(){
-			var self = this;
-			if (self.$toggleProtected.length > 0){
-				self.protected = self.$toggleProtected.prop("checked");
-				var $elem = $(".symbol-title.protected,.symbol-details.protected,li.protected");
-				if (!self.inherited){
-					$elem = $elem.not('.inherited');
-				}
-				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
-				$elem.toggle(self.protected);
-				self.$toggleProtected.closest(".form-check-inline").toggleClass("checked", self.protected);
-			}
-		},
-		setPrivate: function(){
-			var self = this;
-			if (self.$togglePrivate.length > 0){
-				self.private = self.$togglePrivate.prop("checked");
-				var $elem = $(".symbol-title.private,.symbol-details.private,li.private");
-				if (!self.inherited){
-					$elem = $elem.not('.inherited');
-				}
-				$elem = $elem.add($elem.filter(".symbol-title").prev("hr"));
-				$elem.toggle(self.private);
-				self.$togglePrivate.closest(".form-check-inline").toggleClass("checked", self.private);
-			}
-		},
+		/** Shows "No visible items" message in sections where all symbols are hidden. */
 		updateEmptyStates: function(){
 			$('.secondary > h3').each(function(){
 				var $heading = $(this);
@@ -98,32 +93,14 @@
 					$empty.remove();
 				}
 			});
-		},
-		onInheritedChanged: function(e){
-			e.data.self.setInherited();
-			e.data.self.updateEmptyStates();
-		},
-		onPublicChanged: function(e){
-			e.data.self.setPublic();
-			e.data.self.updateEmptyStates();
-		},
-		onProtectedChanged: function(e){
-			e.data.self.setProtected();
-			e.data.self.updateEmptyStates();
-		},
-		onPrivateChanged: function(e){
-			e.data.self.setPrivate();
-			e.data.self.updateEmptyStates();
 		}
 	});
 
 	$(function(){
-
 		if (enabled){
 			var filter = new AccessFilter();
 			filter.init();
 		}
-
 	});
 
 })(window.TEMPLATE_OPTIONS, window.DOCLET_AFILTER_ENABLED, jQuery);

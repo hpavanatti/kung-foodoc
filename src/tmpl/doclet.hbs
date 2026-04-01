@@ -1,4 +1,17 @@
-{{!-- This is the base doclet template and it handles generating the majority of doclet.kinds that are available. --}}
+{{!--
+  doclet.hbs - Default/fallback page template.
+
+  This is the base template for most doclet kinds (class, namespace, mixin, etc.).
+  It extends site/layout without overriding any blocks, which means it inherits
+  the full default layout: page header, breadcrumbs, access filter, primary symbol
+  section, and secondary symbol sections (via the symbol-kinds helper).
+
+  Kind-specific templates (module.hbs, readme.hbs, source.hbs, tutorial.hbs, list.hbs)
+  override specific blocks when they need custom rendering.
+
+  Template resolution: handlebarsHelper.render() checks for tmpl[doclet.kind] first,
+  then falls back to this template (tmpl.doclet).
+--}}
 {{#extend "site/layout"}}
 
 {{/extend}}

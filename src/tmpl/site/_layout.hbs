@@ -1,3 +1,22 @@
+{{!--
+  site/_layout.hbs - Master page template (HTML5 shell).
+
+  This is the base layout that ALL page templates extend via {{#extend "site/layout"}}.
+  It defines the following overridable blocks:
+
+    - "head"        : <head> content (title, stylesheets, inline config)
+    - "page-header" : Page header bar with kind badge, title, and summary
+    - "controls"    : Breadcrumbs and access filter toolbar
+    - "content"     : Main content area (wraps primary + secondary)
+    - "primary"     : The main doclet rendered as a symbol with expanded=true
+    - "secondary"   : Child symbols grouped by kind via the {{symbol-kinds}} helper
+    - "footer"      : Footer with copyright, generated-by, and custom footer option
+
+  Child templates override blocks with {{#content "blockName"}}...{{/content}}.
+
+  Data flow: handlebarsHelper.render() passes the root context containing
+  { crumbs, doclet, config, options, navbar } to this template.
+--}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -90,87 +109,15 @@
 						{{/block}}
 						{{#block "secondary"}}
 							<article class="secondary">
-								{{#if doclet.symbols.module}}
-									<h3><i class="ph ph-package"></i> Modules</h3>
+								{{#each (symbol-kinds doclet.symbols)}}
+									<h3><i class="ph {{icon}}"></i> {{title}}</h3>
 									<dl class="symbol">
-										{{#each doclet.symbols.module}}
+										{{#each items}}
 											<hr/>
-											{{symbol this options=../options}}
+											{{symbol this options=@root.options}}
 										{{/each}}
 									</dl>
-								{{/if}}
-								{{#if doclet.symbols.class}}
-									<h3><i class="ph ph-cube"></i> Classes</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.class}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.mixin}}
-									<h3><i class="ph ph-intersect"></i> Mixins</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.mixin}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.namespace}}
-									<h3><i class="ph ph-folder-open"></i> Namespaces</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.namespace}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.member}}
-									<h3><i class="ph ph-hash"></i> Members</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.member}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.function}}
-									<h3><i class="ph ph-function"></i> Methods</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.function}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.typedef}}
-									<h3><i class="ph ph-textbox"></i> Type Definitions</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.typedef}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.event}}
-									<h3><i class="ph ph-lightning"></i> Events</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.event}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
-								{{#if doclet.symbols.tutorial}}
-									<h3><i class="ph ph-book-open"></i> Tutorials</h3>
-									<dl class="symbol">
-										{{#each doclet.symbols.tutorial}}
-											<hr/>
-											{{symbol this options=../options}}
-										{{/each}}
-									</dl>
-								{{/if}}
+								{{/each}}
 							</article>
 						{{/block}}
 					</section>

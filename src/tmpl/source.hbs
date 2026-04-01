@@ -1,4 +1,10 @@
-<!-- start:source.tmpl.hbs -->
+{{!--
+  source.hbs - Pretty-printed source file viewer.
+
+  Overrides the "content" block to display the raw source code with Prism.js
+  syntax highlighting. The `doclet.code` is HTML-escaped during registration
+  by postProcessor.registerSources(). Line numbers are toggled via options.linenums.
+--}}
 {{#extend "site/layout"}}
 
 	{{#content "content"}}
@@ -9,4 +15,3 @@
 	{{/content}}
 
 {{/extend}}
-<!-- end:source.tmpl.hbs -->

@@ -1,3 +1,31 @@
+/**
+ * @module postProcessor
+ * @summary Enriches raw JSDoc doclets and registers synthetic pages.
+ *
+ * After JSDoc parses the source code, the raw doclets lack many display-ready
+ * fields (titles, signatures, symbols, etc.). This module runs two passes:
+ *
+ * **Registration pass** (called by `template.postProcess()`):
+ *  - `registerReadme()` - Creates the `index.html` page from README.md
+ *  - `registerModules()` - Rewrites longnames for exported module members
+ *  - `registerGlobals()` - Creates the Globals list page
+ *  - `registerDoclets()` - Registers URLs for all standard doclets
+ *  - `registerSources()` - Creates source-view pages with syntax highlighting
+ *  - `registerTutorials()` - Processes the tutorial tree with config overrides
+ *  - `registerLists()` - Creates index pages for each navMember kind
+ *
+ * **Enrichment pass** (`process()`):
+ *  - First loop: computes all docletHelper fields (titles, signatures, params,
+ *    examples, fires, requires, etc.) and sets access/showTableOfContents
+ *  - Second loop: computes symbols and showAccessFilter (needs all doclets
+ *    registered first so cross-references resolve correctly)
+ *
+ * **Navbar** (`buildNavbar()`):
+ *  - Builds the navigation structure consumed by `site/_navbar.hbs`
+ *
+ * @see module:template      - calls this module during postProcess()
+ * @see module:docletHelper  - provides the per-doclet compute functions
+ */
 const fs = require('jsdoc/fs')
 const path = require('jsdoc/path')
 const helper = require('jsdoc/util/templateHelper')
@@ -6,6 +34,7 @@ const template = require('./template')
 const doc = require('./docletHelper')
 const { globSync } = require('glob')
 
+/** Recursively merges source into target, preserving nested objects. */
 function deepMerge (target, source) {
   for (const key of Object.keys(source)) {
     if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key]) &&
@@ -18,6 +47,17 @@ function deepMerge (target, source) {
   return target
 }
 
+/**
+ * Two-pass enrichment of all doclets in the database.
+ *
+ * Pass 1: Computes display fields via docletHelper (titles, signatures,
+ * params, examples, fires, requires) and sets access level defaults.
+ *
+ * Pass 2: Computes symbols (child members grouped by kind) and determines
+ * whether the access filter should appear. This must run after Pass 1
+ * because `getSymbols` and `getShowAccessFilter` query the database
+ * for other doclets which need their fields already computed.
+ */
 exports.process = function () {
   template.raw.data.sort(template.options.sort)
 
@@ -62,6 +102,10 @@ exports.process = function () {
 }
 
 const hasOwnProp = Object.prototype.hasOwnProperty
+/**
+ * Gets or creates a unique filename for a longname, registering the URL
+ * mapping with JSDoc's templateHelper so that `linkto()` can resolve it.
+ */
 function getFilename (longname) {
   let fileUrl
   if (hasOwnProp.call(helper.longnameToUrl, longname)) {
@@ -123,6 +167,10 @@ exports.registerReadme = function () {
   template.raw.data.insert(doclet)
 }
 
+/**
+ * Creates the Globals page doclet containing all top-level members, functions,
+ * constants, and typedefs that have no `memberof` parent.
+ */
 exports.registerGlobals = function () {
   let options = template.options.navMembers.find(function (member) { return member.kind === 'global' })
   if (!options) {
@@ -162,6 +210,11 @@ exports.registerDoclets = function () {
   })
 }
 
+/**
+ * Processes module doclets to handle the JSDoc pattern where a class or
+ * function shares a longname with its parent module (e.g. `module:Foo`).
+ * Rewrites the child's longname to `module:Foo>ChildName` and marks it as exported.
+ */
 exports.registerModules = function () {
   const mapping = {}
   template.raw.data({
@@ -298,6 +351,11 @@ const processTutorial = function (tutorial, tutorials, tutorialToConfig) {
   return tutorials
 }
 
+/**
+ * Processes the tutorial tree from JSDoc, applying config from tutorials.json
+ * (summary, description, showTableOfContents overrides). Inserts each tutorial
+ * into the database as a `tutorial` kind doclet.
+ */
 exports.registerTutorials = function () {
   helper.setTutorials(template.raw.tutorials)
   const tutorialToConfig = getTutorialToConfig()
@@ -307,6 +365,10 @@ exports.registerTutorials = function () {
   })
 }
 
+/**
+ * Creates index/list pages for each navMember kind (Classes, Modules, Tutorials, etc.).
+ * Each list page shows all doclets of that kind with links to their individual pages.
+ */
 exports.registerLists = function () {
   template.options.navMembers.forEach(function (member) {
     // the global kind is register just after the index to reserve it's name so don't do it again
@@ -330,6 +392,11 @@ exports.registerLists = function () {
   })
 }
 
+/**
+ * Builds the navbar data structure consumed by `site/_navbar.hbs`.
+ * Contains the index link and top-level navigation items (lists and globals)
+ * with their member links for dropdown menus.
+ */
 exports.buildNavbar = function (navbar) {
   navbar.index = {
     kind: 'readme',

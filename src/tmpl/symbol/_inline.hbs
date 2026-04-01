@@ -1,3 +1,22 @@
+{{!--
+  symbol/_inline.hbs - Default symbol rendering template.
+
+  Renders a single symbol as a <dt>/<dd> pair within a <dl class="symbol">.
+  The <dt> contains the symbol title (h2 for primary, h4 for secondary).
+  The <dd> contains all tag partials: description, params, props, returns,
+  requires, examples, fires, exceptions, and details.
+
+  This template is the base for symbol/page and symbol/tutorial which
+  extend it via {{#extend "symbol/inline"}} and override "symbol-details".
+
+  CSS classes applied:
+    - Access level (public/protected/private) for filtering
+    - "inherited" for inherited members
+    - "collapsible-symbol" + "expanded" when options.collapseSymbols is on
+
+  Data: receives the doclet as context, with @options, @primary, @expanded,
+  @list available via the data frame (passed by the symbol helper).
+--}}
 <dt class="symbol-title {{kind}}{{#unless @primary}} {{access}}{{#if inherited}} inherited{{/if}}{{/unless}}{{#if @options.collapseSymbols}}{{#unless (content "symbol-details")}} collapsible-symbol{{#if @expanded}} expanded{{/if}}{{/unless}}{{/if}}">
 	{{#block "symbol-title"}}
 		{{#if @primary}}

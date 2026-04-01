@@ -266,15 +266,34 @@ var index = lunr(function () {
 
 Quite simply Sunlight is no longer maintained and while it does work I prefer Prism which is actively maintained and follows HTML5 standards.
 
-## To Do
+## Source Code as Documentation
 
-- Refactor and document the template source code. Now that I know how it all works I can slim down source code and then heavily document it so I can use it as the example documentation.
+The template source code in `src/` is heavily documented and can serve as example documentation for how FooDoc works:
+
+- **`src/publish.js`** - Entry point; documents the three-phase pipeline (configure, postProcess, publish).
+- **`src/utils/template.js`** - Core orchestrator; documents configuration, data access, and the publishing lifecycle.
+- **`src/utils/docletHelper.js`** - Per-doclet field computation; documents signatures, titles, params, examples, and access filter logic.
+- **`src/utils/postProcessor.js`** - Doclet registration and enrichment; documents the two-pass processing pipeline and navbar building.
+- **`src/utils/handlebarsHelper.js`** - Handlebars helpers; documents rendering, detail rows, callouts, and the symbol-kinds abstraction.
+- **`src/utils/lunrHelper.js`** - Search indexing; documents the build-time/runtime search architecture.
+- **`src/tmpl/`** - Every `.hbs` template has a block comment explaining its role, which blocks it overrides, and how data flows through it.
+- **`src/static/js/`** - Frontend components (TOC, search, access filter, symbols, examples) are documented with JSDoc.
 
 ## Changelog
 
 All releases prior to 1.0.0 are considered pre-release, i.e. I'm not finished changing stuff yet so anything can happen ;)
 
-### 0.1.0
+### 0.3.0
+
+- Refactored `tag/_details.hbs` from 251 lines to 24 using new detail-row Handlebars helpers.
+- Refactored `site/_layout.hbs` secondary symbol sections from 9 repetitive blocks to a single `{{#each (symbol-kinds)}}` loop.
+- Refactored `access-filter.js` from 4 duplicate methods to a single parameterized `_setAccess()` factory.
+- Added comprehensive JSDoc documentation to all 5 `src/utils/` modules (template, docletHelper, postProcessor, handlebarsHelper, lunrHelper).
+- Added block comments to all 12 `.hbs` templates explaining their role, overridable blocks, and data flow.
+- Documented `publish.js` entry point and frontend JS components.
+- Net reduction of ~300 lines of template source code with no functional changes.
+
+### 0.2.0
 
 - Migrated from JSDoc 3 to JSDoc 4.0.5.
 - Migrated from Bootstrap 3 to Bootstrap 5.3.8.
@@ -288,52 +307,3 @@ All releases prior to 1.0.0 are considered pre-release, i.e. I'm not finished ch
 - Introduced CSS custom properties (`--fd-*`) for theming; `systemColor` now sets a single variable.
 - Improved access filter with visual feedback (checked/unchecked states, empty state messages).
 - Resolved all critical and high security vulnerabilities.
-
-### 0.0.9
-
-- Fixed issue with the `footer` option not rendering HTML as it was intended.
-- Fixed the missing `global.html` issue.
-- Updated the `copyright` option to also allow HTML in it's content.
-- Updated the `_navbar.hbs` so that if an item has no members it is simply rendered as a link instead of an empty dropdown.
-- Updated the base CSS to apply a background color to the `<html/>` element that matches the footer. This stops the page looking 'incomplete' or 'broken' as there is no longer any whitespace below the footer.
-
-### 0.0.8
-
-- Updated the navbar dropdowns and the table of contents to handle long lists. If the list exceeds the viewport it now displays a scrollbar. (@mistic100)
-- Fixed missing Google Analytics code in the `_layout.hbs`. (@mistic100)
-- Added the `favicon` option allowing you to supply a path to an image or icon to use as the favicon for the documentation. (@mistic100)
-- Added the `showAccessFilter` option which allows users to filter the symbols of a doclet in real-time by if they are inherited, public, protected or private.
-
-### 0.0.7
-
-- Fixed Prism CSS conflict with `.namespace` class.
-- Updated Gruntfile to compile and minify all used prism files (including customized plugins) into single includes.
-- Added in the Prism Normalize Whitespace plugin to perform some additional processing to clean up any extra whitespace in examples.
-
-### 0.0.6
-
-- Replaced Sunlight syntax highlighter with Prism as it is maintained and it's just generally better.
-
-### 0.0.5
-
-- Updated TOC to align with crumbs.
-- Fixed anchor-links not showing on hover.
-- Updated the search input size to match the TOC.
-
-### 0.0.4
-
-- Added missing {@run } javascript and css as well as some additional styling for related tutorials.
-
-### 0.0.3
-
-- Fixed page symbols not generating details correctly when displayed as primary header.
-
-### 0.0.2
-
-- Fixed missing moment.js dependency in the npm package.
-- Added .npmignore to exclude the generated examples directory.
-- Updated the lunrHelper.js to write files directly to the output directory instead of to the template/static one and then copying it across.
-
-### 0.0.1
-
-- Initial check in of template.

@@ -1,4 +1,10 @@
-<!-- start:readme.hbs -->
+{{!--
+  tutorial.hbs - Tutorial page template.
+
+  Renders the tutorial's markdown content and appends a "Related Tutorials"
+  list if the tutorial has child tutorials (defined in tutorials.json).
+  The tutorial hierarchy is processed by postProcessor.registerTutorials().
+--}}
 {{#extend "site/layout"}}
 
 	{{#content "content"}}
@@ -18,4 +24,3 @@
 	{{/content}}
 
 {{/extend}}
-<!-- end:readme.hbs -->

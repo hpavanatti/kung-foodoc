@@ -1,4 +1,16 @@
-<!-- start:navbar.hbs -->
+{{!--
+  site/_navbar.hbs - Top navigation bar partial.
+
+  Included by _layout.hbs via {{> site/navbar}}. Renders a responsive Bootstrap 5
+  navbar with:
+    - Brand link (systemLogo + systemName) pointing to index.html
+    - Navigation items from navbar.topLevel (built by postProcessor.buildNavbar)
+    - Two nav modes: dropdown (default) or inline list (options.inlineNav)
+    - Optional search input (options.search) from search/_navbar-input.hbs
+
+  The navbar data structure is populated in postProcessor.buildNavbar() from
+  the navMembers option, which defines which kinds appear in the top nav.
+--}}
 <header class="navbar navbar-expand-md{{#if options.inverseNav}} navbar-dark bg-dark{{else}} navbar-light bg-light{{/if}} fixed-top">
 	<div class="container">
 		<a class="navbar-brand d-flex align-items-center" href="{{navbar.index.link}}">

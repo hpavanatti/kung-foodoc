@@ -1,3 +1,10 @@
+{{!--
+  module.hbs - Page template for module doclets.
+
+  Overrides the "primary" block to show the module's description and any
+  classdesc from exported members, plus the @requires and @details tags.
+  The secondary block (symbol sections) is inherited from site/layout.
+--}}
 {{#extend "site/layout"}}
 
 	{{#content "primary"}}

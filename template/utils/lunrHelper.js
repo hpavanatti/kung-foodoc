@@ -1,3 +1,30 @@
+/**
+ * @module lunrHelper
+ * @summary Builds the client-side Lunr.js search index at documentation generation time.
+ *
+ * The search feature works in two phases:
+ *
+ * **Build time** (this module):
+ *  - As each page-level doclet is rendered, `add(doclet, html)` extracts
+ *    searchable text (title, longname, summary, description, body text) and
+ *    stores it alongside an id (the doclet's URL).
+ *  - For classes and namespaces, child members/methods/typedefs are also indexed
+ *    so they appear in search results even though they don't have their own page.
+ *  - `writeFilesSync()` serializes the Lunr index and the document store to
+ *    `lunr-data.json` and `lunr-data.js` (for offline/file:// protocol use).
+ *
+ * **Runtime** (lunr-search.js in the browser):
+ *  - On first search, the JSON is loaded (via AJAX or embedded script tag).
+ *  - The pre-built index is loaded into `lunr.Index.load()` -- no client-side
+ *    indexing needed, which keeps search fast even for large codebases.
+ *  - Results are looked up in the store by ref id.
+ *
+ * Field boost weights (higher = more influence on ranking):
+ *  - longname: 1000, name: 500, tags: 300, kind: 110, title: 100,
+ *    summary: 70, description: 50, body: 1 (default)
+ *
+ * @see module:template - calls writeFilesSync() during publish()
+ */
 const lunr = require('lunr')
 const cheerio = require('cheerio')
 const template = require('./template')
@@ -6,14 +33,22 @@ const path = require('jsdoc/path')
 const fs = require('jsdoc/fs')
 const helper = require('jsdoc/util/templateHelper')
 
+/** Document store keyed by URL -- shipped to the client for result display. */
 const store = exports.store = {}
+/** In-memory document array fed to Lunr's indexer during writeFilesSync(). */
 const documents = []
 
+/** Strips all HTML tags and collapses whitespace for plain-text indexing. */
 const sanitize = function (html) {
   if (typeof html !== 'string') return undefined
   return sanitizeHtml(html, { allowedTags: [], allowedAttributes: [] }).replace(/\s+/g, ' ').trim()
 }
 
+/**
+ * Recursively generates search-friendly variations of a dotted longname.
+ * For `A.B.C` produces: `"A.B.C B.C C"` so partial matches work.
+ * Also handles instance members (# separator): `Foo#bar` adds `bar`.
+ */
 const _variations = function (parts) {
   const result = []
   result.push(parts.join('.'))
@@ -48,6 +83,14 @@ const parseBody = function (html) {
   return $('#main').text().replace(/\s+/g, ' ').trim()
 }
 
+/**
+ * Indexes a doclet for search. Extracts all searchable fields and adds them
+ * to the document store. For classes and namespaces, also recursively indexes
+ * child members, methods, and typedefs so they appear in search results.
+ *
+ * @param {Object} doclet - The enriched doclet to index.
+ * @param {string} [html] - The rendered HTML page (body text is extracted via Cheerio).
+ */
 const add = exports.add = function (doclet, html) {
   const id = helper.longnameToUrl[doclet.longname]
   const doc = {
@@ -76,6 +119,14 @@ const add = exports.add = function (doclet, html) {
   }
 }
 
+/**
+ * Builds the final Lunr index from all collected documents and writes two files:
+ *  - `lunr-data.json` - standard JSON (loaded via AJAX over HTTP)
+ *  - `lunr-data.js` - wrapped in `window.lunrData = ...` (used when opened
+ *    via file:// protocol where AJAX is blocked by CORS)
+ *
+ * @param {boolean} pretty - When true, outputs indented JSON for readability.
+ */
 exports.writeFilesSync = function (pretty) {
   const index = lunr(function () {
     this.field('longname', { boost: 1000 })

@@ -1,3 +1,35 @@
+/**
+ * @module template
+ * @summary Core orchestrator for the FooDoc JSDoc template.
+ *
+ * This is the central module that ties together configuration, data access, and
+ * the publishing pipeline. The lifecycle is:
+ *
+ *  1. **configure()** - Called by `publish.js` with JSDoc's TaffyDB data, raw
+ *     options, and tutorials. Patches the Salty database for TaffyDB compat,
+ *     merges user options with defaults, and sets up output directories.
+ *
+ *  2. **postProcess()** - Delegates to `postProcessor` to register all doclets
+ *     (readme, modules, globals, sources, tutorials, lists), enrich them with
+ *     computed fields (signatures, titles, symbols), and build the navbar.
+ *
+ *  3. **publish()** - Copies static files, renders every page-level doclet
+ *     through `handlebarsHelper.render()`, writes HTML to disk, and generates
+ *     the Lunr search index.
+ *
+ * Other modules import this module to access shared state:
+ *  - `options` (merged template options)
+ *  - `config` (runtime config: paths, version, date)
+ *  - `raw` (the underlying TaffyDB data)
+ *  - `navbar` (built by postProcessor.buildNavbar)
+ *  - `kinds` (classification of doclet types)
+ *  - `find()` / `linkto()` (query helpers used everywhere)
+ *
+ * @see module:handlebarsHelper - renders doclets to HTML
+ * @see module:postProcessor   - enriches doclets before rendering
+ * @see module:docletHelper    - computes per-doclet fields
+ * @see module:lunrHelper      - builds the client-side search index
+ */
 const fs = require('jsdoc/fs')
 const path = require('jsdoc/path')
 const helper = require('jsdoc/util/templateHelper')
@@ -10,6 +42,13 @@ const dayjs = require('dayjs')
 const advancedFormat = require('dayjs/plugin/advancedFormat')
 dayjs.extend(advancedFormat)
 
+/**
+ * Classification of doclet kinds used throughout the template.
+ * - `custom`  : synthetic kinds created by the template (not from JSDoc tags)
+ * - `pages`   : kinds that get their own HTML page
+ * - `symbols` : kinds that appear as child symbols on a page
+ * - `global`  : kinds that can exist at the global scope
+ */
 const kinds = exports.kinds = {
   custom: ['readme', 'global', 'source', 'tutorial', 'list'],
   pages: ['readme', 'global', 'source', 'tutorial', 'list', 'class', 'external', 'mixin', 'module', 'namespace', 'interface'],
@@ -17,6 +56,11 @@ const kinds = exports.kinds = {
   global: ['member', 'function', 'constant', 'typedef']
 }
 
+/**
+ * Template options merged from user's JSDoc config (`templates` key) with
+ * sensible defaults. These control everything from navbar layout to search,
+ * analytics, and source file output. See README.md for full documentation.
+ */
 const options = exports.options = Object.assign({
   includeDate: true,
   dateFormat: 'Do MMM YYYY',
@@ -66,6 +110,10 @@ const faviconTypes = {
   '.gif': 'image/gif'
 }
 
+/**
+ * Runtime configuration derived from JSDoc environment and template options.
+ * Contains resolved directory paths, JSDoc version, and formatted date.
+ */
 const config = exports.config = {
   debug: false,
   raw: env.opts,
@@ -82,6 +130,10 @@ const config = exports.config = {
   }
 }
 
+/**
+ * Raw data store holding the patched TaffyDB/Salty database, JSDoc options,
+ * and tutorial tree. Populated during configure().
+ */
 const raw = exports.raw = {
   data: null,
   opts: {},
@@ -152,6 +204,12 @@ exports.configure = function (taffyData, opts, tutorials) {
 
 const navbar = exports.navbar = {}
 
+/**
+ * Runs the full post-processing pipeline on the raw JSDoc data.
+ * Order matters: readme must be registered first (reserves `index.html`),
+ * then modules (rewrites longnames for exported members), then all other
+ * doclets, sources, tutorials, and lists. Finally builds the navbar.
+ */
 exports.postProcess = function () {
   processor.registerReadme()
   processor.registerModules()
@@ -164,12 +222,17 @@ exports.postProcess = function () {
   processor.buildNavbar(navbar)
 }
 
+/**
+ * Final publish step: copies static assets, renders all page-level doclets
+ * to HTML files, and writes the Lunr search index to disk.
+ */
 exports.publish = function () {
   generateStaticFiles()
   generateDocs()
   lunr.writeFilesSync(true)
 }
 
+/** Strips all HTML tags and collapses whitespace. Used for page titles and search indexing. */
 exports.sanitize = function (html) {
   if (typeof html !== 'string') return
   return sanitizeHtml(html, { allowedTags: [], allowedAttributes: [] }).replace(/\s+/g, ' ').trim()
@@ -188,6 +251,11 @@ const find = exports.find = function (spec, sort) {
   return sort ? raw.data(spec).order(sort).get() : raw.data(spec).get()
 }
 
+/**
+ * Enhanced version of JSDoc's `helper.linkto` that resolves display text
+ * from the doclet's `linkText` property and handles tutorial links specially.
+ * Used by all Handlebars helpers that produce `<a>` elements.
+ */
 const linkto = exports.linkto = function (longname, linkText) {
   let text = (linkText || longname) + ''
   // if no linkText was supplied lookup the longname and use the `linkText` property for the doclet.
@@ -212,6 +280,10 @@ const getPages = exports.getPages = function (sort) {
   return members
 }
 
+/**
+ * Copies all static assets (CSS, JS, vendor libs) from the template's static
+ * directory to the output directory. Also handles systemLogo and favicon if configured.
+ */
 const generateStaticFiles = exports.generateStaticFiles = function () {
   // first copy all files within the templates 'static' directory to the output directory
   const files = fs.ls(config.dir.static, 3)
@@ -259,6 +331,10 @@ const generateStaticFiles = exports.generateStaticFiles = function () {
   }
 }
 
+/**
+ * Iterates every page-level doclet, renders it through handlebarsHelper.render(),
+ * writes the HTML to the output directory, and adds it to the Lunr search index.
+ */
 const generateDocs = exports.generateDocs = function () {
   const pages = getPages()
   Object.keys(pages).forEach(function (kind) {
@@ -289,6 +365,10 @@ const hasNavMember = exports.hasNavMember = function (kind) {
   }) !== -1
 }
 
+/**
+ * Builds the breadcrumb trail for a doclet page. Returns an array of HTML
+ * strings (linkto'd) representing the path: Home > List > Ancestors > Name.
+ */
 exports.createCrumbs = function (doclet) {
   const crumbs = []
   if (doclet.kind === 'readme' || doclet.kind === 'source') return crumbs
