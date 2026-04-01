@@ -10,7 +10,7 @@
 		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
 		<link type="text/css" rel="stylesheet" href="css/template.min.css">
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooDoc","systemSummary":"A Bootstrap and Handlebars based template for JSDoc3.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":true,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"FooDoc","systemSummary":"A Bootstrap and Handlebars based template for JSDoc3.","systemLogo":"","systemColor":"","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":true,"outputSourceFiles":true,"sourceRootPath":null,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"linenum, longname, version, since","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":false};
 			window.DOCLET_TOC_ENABLED = true;
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
@@ -118,6 +118,7 @@
     &quot;methodHeadingReturns&quot;  : &quot;{boolean}&quot;,
     &quot;outputSourceFiles&quot;     : &quot;{boolean}&quot;,
     &quot;outputSourcePath&quot;      : &quot;{boolean}&quot;,
+    &quot;sourceRootPath&quot;        : &quot;{string}&quot;,
     &quot;sort&quot;                  : &quot;{boolean|string}&quot;,
     &quot;search&quot;                : &quot;{boolean}&quot;,
     &quot;favicon&quot;               : &quot;{string}&quot;,
@@ -187,8 +188,12 @@ This option allows you to specify which kinds of documents appear in the navbar,
 Whether or not to output pretty printed source file documentation that is linked to from other documents.</p>
 </li>
 <li>
-<p><strong>outputSourcePath - <code>true</code></strong><br>
+<p><strong>outputSourcePath - <code>false</code></strong><br>
 When <code>outputSourceFiles</code> is <code>false</code>, you may still want to name the file even without a link to the pretty printed output. Set this to <code>true</code> when <code>outputSourceFiles</code> is <code>false</code>. <code>outputSourceFiles</code> when <code>true</code> takes precedence over this setting.</p>
+</li>
+<li>
+<p><strong>sourceRootPath - <code>null</code></strong><br>
+The root path to strip from source file paths when generating source links. When <code>null</code>, the common prefix of all source file paths is computed automatically. Set this if the automatic detection doesn't produce the desired result.</p>
 </li>
 <li>
 <p><strong>linenums - <code>true</code></strong><br>
@@ -348,6 +353,13 @@ This is the full text of the main content section of the generated HTML for the 
 </ul>
 <h2>Changelog</h2>
 <p>All releases prior to 1.0.0 are considered pre-release, i.e. I'm not finished changing stuff yet so anything can happen ;)</p>
+<h3>0.4.0</h3>
+<ul>
+<li>Removed unused <code>disablePackagePath</code> template option.</li>
+<li>Fixed <code>outputSourcePath</code> default documented as <code>true</code> when code default was <code>false</code>.</li>
+<li>Documented previously undocumented <code>sourceRootPath</code> template option.</li>
+<li>Audited all 26 template options for correct usage and documentation.</li>
+</ul>
 <h3>0.3.0</h3>
 <ul>
 <li>Refactored <code>tag/_details.hbs</code> from 251 lines to 24 using new detail-row Handlebars helpers.</li>

@@ -77,7 +77,6 @@ const options = exports.options = Object.assign({
   inlineNav: false,
   outputSourceFiles: true,
   sourceRootPath: null,
-  disablePackagePath: true,
   outputSourcePath: false,
   showTableOfContents: true,
   showAccessFilter: true,

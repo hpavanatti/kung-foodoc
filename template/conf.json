@@ -17,7 +17,6 @@
     "inlineNav": false,
     "outputSourceFiles": true,
     "outputSourcePath": false,
-    "disablePackagePath": true,
     "methodHeadingReturns": true,
     "showTableOfContents": true,
     "showAccessFilter": false,

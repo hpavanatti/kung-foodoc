@@ -77,6 +77,7 @@ FooDoc ships with a `conf.json` file in the template/ directory. It is just a re
     "methodHeadingReturns"  : "{boolean}",
     "outputSourceFiles"     : "{boolean}",
     "outputSourcePath"      : "{boolean}",
+    "sourceRootPath"        : "{string}",
     "sort"                  : "{boolean|string}",
     "search"                : "{boolean}",
     "favicon"               : "{string}",
@@ -125,8 +126,10 @@ FooDoc ships with a `conf.json` file in the template/ directory. It is just a re
 
 - **outputSourceFiles - `true`**
   Whether or not to output pretty printed source file documentation that is linked to from other documents.
-- **outputSourcePath - `true`**
+- **outputSourcePath - `false`**
   When `outputSourceFiles` is `false`, you may still want to name the file even without a link to the pretty printed output. Set this to `true` when `outputSourceFiles` is `false`. `outputSourceFiles` when `true` takes precedence over this setting.
+- **sourceRootPath - `null`**
+  The root path to strip from source file paths when generating source links. When `null`, the common prefix of all source file paths is computed automatically. Set this if the automatic detection doesn't produce the desired result.
 - **linenums - `true`**
   When `true`, line numbers will appear in any pretty printed source code blocks. If `outputSourceFiles` is `true` this will add an additional link to all documented members pointing to the exact line number in the pretty printed source file the documentation was pulled from.
 - **showTableOfContents - `true`**
@@ -282,6 +285,13 @@ The template source code in `src/` is heavily documented and can serve as exampl
 ## Changelog
 
 All releases prior to 1.0.0 are considered pre-release, i.e. I'm not finished changing stuff yet so anything can happen ;)
+
+### 0.4.0
+
+- Removed unused `disablePackagePath` template option.
+- Fixed `outputSourcePath` default documented as `true` when code default was `false`.
+- Documented previously undocumented `sourceRootPath` template option.
+- Audited all 26 template options for correct usage and documentation.
 
 ### 0.3.0
 
