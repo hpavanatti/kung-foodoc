@@ -391,13 +391,16 @@ This is the full text of the main content section of the generated HTML for the 
 <h3>0.1.0</h3>
 <ul>
 <li>Migrated from JSDoc 3 to JSDoc 4.0.5.</li>
-<li>Migrated from Bootstrap 3 to Bootstrap 5.3.8 with Bootstrap Icons.</li>
+<li>Migrated from Bootstrap 3 to Bootstrap 5.3.8.</li>
+<li>Replaced Bootstrap Icons with <a href="https://phosphoricons.com/">Phosphor Icons</a> via CDN.</li>
 <li>Replaced moment.js (deprecated) with dayjs.</li>
 <li>Replaced TaffyDB compatibility layer for JSDoc 4's @jsdoc/salty.</li>
 <li>Replaced grunt-jsdoc with a custom Grunt task for JSDoc 4 support.</li>
 <li>Updated lunr from 1.x to 2.x (immutable index built at generation time).</li>
 <li>Updated cheerio, sanitize-html, handlebars, prismjs, jQuery, and all Grunt plugins.</li>
 <li>Removed <code>extend</code> and <code>moment</code> dependencies in favor of native alternatives.</li>
+<li>Introduced CSS custom properties (<code>--fd-*</code>) for theming; <code>systemColor</code> now sets a single variable.</li>
+<li>Improved access filter with visual feedback (checked/unchecked states, empty state messages).</li>
 <li>Resolved all critical and high security vulnerabilities.</li>
 </ul>
 <h3>0.0.9</h3>
