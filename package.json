@@ -25,7 +25,8 @@
   ],
   "main": "./template/publish.js",
   "files": [
-    "template/"
+    "template/",
+    "README.md"
   ],
   "scripts": {
     "build": "grunt template",
