@@ -277,13 +277,16 @@ All releases prior to 1.0.0 are considered pre-release, i.e. I'm not finished ch
 ### 0.1.0
 
 - Migrated from JSDoc 3 to JSDoc 4.0.5.
-- Migrated from Bootstrap 3 to Bootstrap 5.3.8 with Bootstrap Icons.
+- Migrated from Bootstrap 3 to Bootstrap 5.3.8.
+- Replaced Bootstrap Icons with [Phosphor Icons](https://phosphoricons.com/) via CDN.
 - Replaced moment.js (deprecated) with dayjs.
 - Replaced TaffyDB compatibility layer for JSDoc 4's @jsdoc/salty.
 - Replaced grunt-jsdoc with a custom Grunt task for JSDoc 4 support.
 - Updated lunr from 1.x to 2.x (immutable index built at generation time).
 - Updated cheerio, sanitize-html, handlebars, prismjs, jQuery, and all Grunt plugins.
 - Removed `extend` and `moment` dependencies in favor of native alternatives.
+- Introduced CSS custom properties (`--fd-*`) for theming; `systemColor` now sets a single variable.
+- Improved access filter with visual feedback (checked/unchecked states, empty state messages).
 - Resolved all critical and high security vulnerabilities.
 
 ### 0.0.9
