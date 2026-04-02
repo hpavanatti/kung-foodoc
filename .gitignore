@@ -12,3 +12,4 @@ node_modules/
 .test2/
 .playwright-mcp/
 .claude/
+.superset
