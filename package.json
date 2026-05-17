@@ -37,7 +37,10 @@
     "examples:inline": "grunt inline",
     "examples:logo-color": "grunt logo-color",
     "examples:collapse": "grunt collapse",
-    "examples:namespaced": "grunt namespaced"
+    "examples:namespaced": "grunt namespaced",
+    "publish:public": "npm publish --access=public",
+    "publish:private": "npm publish --registry=$PRIVATE_REGISTRY",
+    "publish:all": "npm run publish:public && npm run publish:private"
   },
   "dependencies": {
     "cheerio": "1.2.0",

@@ -13,3 +13,6 @@ node_modules/
 .playwright-mcp/
 .claude/
 .superset
+
+#ignore local npm config overrides (private registry tokens, etc.)
+.npmrc.local
