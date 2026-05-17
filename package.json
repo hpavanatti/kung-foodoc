@@ -60,7 +60,6 @@
     "bootstrap": "5.3.8",
     "clipboard": "2.0.11",
     "eslint": "9.39.4",
-    "eslint-plugin-import-x": "4.16.2",
     "grunt-contrib-handlebars": "3.0.0",
     "jquery": "4.0.0",
     "neostandard": "0.13.0",
