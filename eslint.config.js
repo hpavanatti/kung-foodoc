@@ -28,8 +28,7 @@ module.exports = [
     },
     rules: {
       'no-console': 'off',
-      'space-before-function-paren': 'off',
-      'import-x/no-unresolved': 'off'
+      'space-before-function-paren': 'off'
     }
   }
 ]
