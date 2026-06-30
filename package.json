@@ -1,6 +1,6 @@
 {
   "name": "kung-foodoc",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "A Bootstrap 5 and Handlebars based JSDoc 4 template.",
   "license": "GPL-3.0",
   "author": "hpavanatti",
@@ -55,7 +55,7 @@
     "handlebars-layouts": "3.1.4",
     "jsdoc": "4.0.5",
     "lunr": "2.3.9",
-    "sanitize-html": "2.17.4"
+    "sanitize-html": "2.17.5"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.29.7",
