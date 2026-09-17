@@ -6,7 +6,7 @@
 MyApi.utils = {};
 
 /**
- * @summary Formats the supplied `str` with the given replacement args and there indexes.
+ * @summary Formats the supplied `str` with the given replacement args and their indexes.
  * @memberof MyApi.utils.
  * @function format
  * @param {string} str - The format string.

@@ -65,8 +65,8 @@
 <h2>Features</h2>
 <ul>
 <li>Right side Table of Contents which auto hides on pages it's not required on.</li>
-<li>Basic themeing is supported through the <code>systemColor</code> option and if required further customizations can be supplied using the <code>stylesheets</code> and <code>scripts</code> options.</li>
-<li>Integrated offline search across all doclets and there members (excludes source files).</li>
+<li>Basic theming is supported through the <code>systemColor</code> option and if required further customizations can be supplied using the <code>stylesheets</code> and <code>scripts</code> options.</li>
+<li>Integrated offline search across all doclets and their members (excludes source files).</li>
 <li>Syntax highlighting using <a href="https://github.com/PrismJS/prism">Prism</a> .</li>
 <li>Breadcrumbs on every page for easy navigation.</li>
 <li>Handlebars template engine using precompiled templates to generate documentation.</li>
@@ -218,7 +218,7 @@ Adds a <a href="http://www.google.com/analytics">Google Analytics</a> code block
 </li>
 <li>
 <p><strong>collapseSymbols - <code>true</code></strong><br>
-When <code>true</code>, symbols in generated pages (methods, members, type definitions, etc.) are collapsed so only there title and summary are visible. You can then click on them to reveal more detailed information.</p>
+When <code>true</code>, symbols in generated pages (methods, members, type definitions, etc.) are collapsed so only their title and summary are visible. You can then click on them to reveal more detailed information.</p>
 </li>
 <li>
 <p><strong>methodHeadingReturns - <code>true</code></strong><br>
@@ -226,7 +226,7 @@ When <code>true</code>, method headings will contain the return type if one exis
 </li>
 <li>
 <p><strong>sort - <code>&quot;linenum, longname, version, since&quot;</code></strong><br>
-Specifies the sort order of the symbols on a page. They will still be grouped under there own headings (Classes, Members, Methods, etc.) but within these groups they are sorted using the supplied value. By default this sorts symbols first by where they were found in the original source code, then by there longname, then by there version and lastly by there since tag.</p>
+Specifies the sort order of the symbols on a page. They will still be grouped under their own headings (Classes, Members, Methods, etc.) but within these groups they are sorted using the supplied value. By default this sorts symbols first by where they were found in the original source code, then by their longname, then by their version and lastly by their since tag.</p>
 </li>
 <li>
 <p><strong>search - <code>true</code></strong><br>
@@ -296,7 +296,7 @@ A boolean value indicating whether or not to generate the Table of Contents for 
 <h3>Why another template?</h3>
 <p>Over the years I have tried quite a few templates available for JSDoc and none of them produced a look I was quite happy with. Some got close like DocStrap, but I still wasn't quite satisfied so I did what all developers do eventually, roll their own. I really liked the clean look of the Bootstrap documentation so I used it as base for the layout and styling for this template.</p>
 <h3>Why Handlebars?</h3>
-<p>Personal preference really, Underscore templates work great but due to there ability to have basically any JavaScript in them I've noticed a lot logic which should be handled elsewhere creep into them overtime. It's simply easier to hack it into the template than find where it should be implemented as part of the post processing.</p>
+<p>Personal preference really, Underscore templates work great but due to their ability to have basically any JavaScript in them I've noticed a lot logic which should be handled elsewhere creep into them overtime. It's simply easier to hack it into the template than find where it should be implemented as part of the post processing.</p>
 <h3>What's different from DocStrap's search?</h3>
 <p>The <a href="http://lunrjs.com/">lunr</a> search implementation in DocStrap performs all the indexing in the browser using a hidden iframe, this was done to allow the search to work offline when viewing the documentation via the <code>file://</code> protocol. It does however have the drawback of loading and then indexing what could potentially be a large numbers of documents, on every page load.</p>
 <p>While this works I took a different approach and decided to generate the search index and store as part of the documentation process and output the results in two files <code>lunr-data.json</code> and <code>lunr-data.js</code>. These two files are then consumed by the search component when required. The <code>lunr-data.json</code> file is fetched via ajax request if the documentation is served via <code>http://</code> or <code>https://</code> protocols while the <code>lunr-data.js</code> file is simply included into the page when using the <code>file://</code> protocol as you can't perform ajax requests. This ultimately provides us with two primary benefits over DocStrap's implementation:</p>

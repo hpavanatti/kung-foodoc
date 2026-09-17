@@ -7,8 +7,8 @@ Fork of [FooDoc](https://github.com/steveush/foodoc) by Steve Usher, inspired by
 ## Features
 
 - Right side Table of Contents which auto hides on pages it's not required on.
-- Basic themeing is supported through the `systemColor` option and if required further customizations can be supplied using the `stylesheets` and `scripts` options.
-- Integrated offline search across all doclets and there members (excludes source files).
+- Basic theming is supported through the `systemColor` option and if required further customizations can be supplied using the `stylesheets` and `scripts` options.
+- Integrated offline search across all doclets and their members (excludes source files).
 - Syntax highlighting using [Prism](https://github.com/PrismJS/prism) .
 - Breadcrumbs on every page for easy navigation.
 - Handlebars template engine using precompiled templates to generate documentation.
@@ -142,11 +142,11 @@ FooDoc ships with a `conf.json` file in the template/ directory. It is just a re
   - **ua** The google agent (see Google Analytics help for details)
   - **domain** The domain being served. (see Google Analytics help for details)
 - **collapseSymbols - `true`**
-  When `true`, symbols in generated pages (methods, members, type definitions, etc.) are collapsed so only there title and summary are visible. You can then click on them to reveal more detailed information.
+  When `true`, symbols in generated pages (methods, members, type definitions, etc.) are collapsed so only their title and summary are visible. You can then click on them to reveal more detailed information.
 - **methodHeadingReturns - `true`**
   When `true`, method headings will contain the return type if one exists.
 - **sort - `"linenum, longname, version, since"`**
-  Specifies the sort order of the symbols on a page. They will still be grouped under there own headings (Classes, Members, Methods, etc.) but within these groups they are sorted using the supplied value. By default this sorts symbols first by where they were found in the original source code, then by there longname, then by there version and lastly by there since tag.
+  Specifies the sort order of the symbols on a page. They will still be grouped under their own headings (Classes, Members, Methods, etc.) but within these groups they are sorted using the supplied value. By default this sorts symbols first by where they were found in the original source code, then by their longname, then by their version and lastly by their since tag.
 - **search - `true`**
   Whether or not to enable the lunr search component.
 - **favicon - `null`**
@@ -219,7 +219,7 @@ Over the years I have tried quite a few templates available for JSDoc and none o
 
 ### Why Handlebars?
 
-Personal preference really, Underscore templates work great but due to there ability to have basically any JavaScript in them I've noticed a lot logic which should be handled elsewhere creep into them overtime. It's simply easier to hack it into the template than find where it should be implemented as part of the post processing.
+Personal preference really, Underscore templates work great but due to their ability to have basically any JavaScript in them I've noticed a lot logic which should be handled elsewhere creep into them overtime. It's simply easier to hack it into the template than find where it should be implemented as part of the post processing.
 
 ### What's different from DocStrap's search?
 

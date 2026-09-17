@@ -50,7 +50,7 @@
 	}
 
 	/**
-	 * @summary Performs an ajax get request for the .json file containing the index and store and once complete loads them into there respective properties.
+	 * @summary Performs an ajax get request for the .json file containing the index and store and once complete loads them into their respective properties.
 	 * @returns {jQuery.Promise} If `resolved` then the .json file was successfully retrieved and loaded.
 	 *
 	 * If `rejected` an error occurred loading the .json file and searching is not possible.

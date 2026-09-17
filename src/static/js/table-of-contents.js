@@ -229,7 +229,7 @@
 	/**
 	 * @summary Recursively creates the TOC `UL` structure.
 	 * @param {Array.<TOC~Item>} [items] - The items to render the TOC from. If not supplied the TOC is created using all available items.
-	 * @returns {jQuery} The `UL` element containing the TOC items as `LI` elements, child items create there own `UL` within there parent `LI`.
+	 * @returns {jQuery} The `UL` element containing the TOC items as `LI` elements, child items create their own `UL` within their parent `LI`.
 	 */
 	TOC.prototype.$nav = function(items){
 		var $ul = $('<ul/>', {'class': 'nav'});
